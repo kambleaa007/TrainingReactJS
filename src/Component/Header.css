@@ -1,9 +1,13 @@
+/* GLOBAL COLOR VARIABLE TO SHARE ACROSS CSS CLASSES */
+:root {
+    --blueColor: #106988;
+}
 
 .Header{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-color: #106988;
+    background-color: var(--blueColor);
     /* padding: 25px; */
     color: white;
     margin-left: 15%;
@@ -35,7 +39,7 @@
     color:white;
     float: right;
     font-size: 25px;
-    background-color: #106988;
+    background-color: var(--blueColor);
     border-radius: 40%;
     border: none;
     margin-right: 20px;
@@ -58,7 +62,7 @@
     float: left;
     color:white;
     font-size: 25px;
-    background-color: #106988;
+    background-color: var(--blueColor);
     border-radius: 40%;
     border: none;
     margin-left: 10px;

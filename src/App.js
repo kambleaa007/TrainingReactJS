@@ -10,6 +10,9 @@ import SendMoney  from './Component/SendMoney';
 import TransferMoney from "./Component/TransferMoney";
 import StandingOrder from "./Component/StandingOrder";
 import SetUpStanding from "./Component/SetUpStanding";
+import PrivateBankingPayment from "./Component/PrivateBankingPayment";
+
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { GlobalProvider } from "./Context/GlobalContext";
@@ -35,7 +38,9 @@ function App() {
               <Route path="/transferMoney" component={(props) => ( <TransferMoney name={'Transfer Between'} isBack={true} setData={setData} accounts={data.Accounts}  /> )} />
               <Route path="/standingOrders" component={(props) => ( <StandingOrder name={'Standing Orders'} isBack={true} setData={setData} accounts={data.Accounts}  /> )} />
               <Route path="/setUpNewOrder" component={(props) => ( <SetUpStanding  name={'Set up Standing...'} isBack={true} /> )} />
+              <Route path="/privateBankingPayment" component={(props) => ( <PrivateBankingPayment  name={'Private Banking Payment'} isBack={true} /> )} />
             
+              
             </Switch>
           
 

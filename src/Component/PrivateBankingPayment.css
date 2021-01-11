@@ -1,0 +1,63 @@
+
+/* GLOBAL COLOR VARIABLE TO SHARE ACROSS CSS CLASSES */
+:root {
+    --blueColor: #106988;
+}
+
+.private-logo {
+    
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    float: center;
+
+    background-image: url(./../Common/Logos/User.png);
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.private-banking-title {
+
+}
+
+.top-message {
+    font-size: .7em;
+    padding-top: 15px;
+}
+
+.borderless {    
+    list-style-type: none;
+    font-size: .8em;
+
+    padding-left: 10px;
+}
+
+.borderless li:before {
+    content: '✓';
+    font-weight: bold;
+    padding-right: 5px;
+    color: var(--blueColor);
+}
+
+.private-banking-note {
+    background-color: lightskyblue;
+    padding: 10px;
+}
+
+.private-banking-footer {
+    padding-top: 20px;
+}
+
+.go-back-button {
+    color: var(--blueColor);
+    border-color: var(--blueColor);
+    background-color: white;
+    width: 20%;
+}
+.req-payment-button {
+    color: white;
+    border-color: var(--blueColor);
+    background-color: var(--blueColor);
+    width: 30%;
+}

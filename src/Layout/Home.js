@@ -35,6 +35,7 @@ function Operations() {
                 <li><a href="/mobileTopup">Mobile top up<i className=' next'></i></a></li>
                 <li><a href="/directDebits">Direct debits<i className='  next'></i></a></li>
                 <li><a href="/futureDatedPayments">Future dated payments<i className='  next'></i></a></li>
+                <li><a href="/privateBankingPayment">Private banking payment<i className='  next'></i></a></li>
                 </ul> 
             </div>
         </div>
