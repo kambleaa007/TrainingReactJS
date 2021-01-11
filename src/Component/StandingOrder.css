@@ -1,0 +1,152 @@
+.standing-order-title {
+    text-align: center;
+    color: grey;
+}
+
+.standing-order-or {
+    text-align: center;
+    width: 100%; 
+    border-bottom: 1px solid gray; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+}
+.standing-order-or span {
+    background:#fff; 
+    padding:0 10px;
+}
+
+
+
+.standing-order-body {
+    padding: 30px ;
+    list-style-type: none;
+    color: grey;
+}
+.standing-order-body ul {
+    padding-left: 0px;
+}
+.standing-order-body label {
+    display: block;
+}
+.standing-order-body select{
+    background: #FDFFFF;
+    padding: 10px;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    border: 1px solid #dedddd;
+    border-radius: 5px;
+    color: grey;
+    width: 100%;
+}
+
+
+
+.set-up-button {
+    display: flex;    
+    justify-content: flex-end;
+}
+.set-up-button button {
+    background: #FDFFFF;
+    padding: 10px;
+    border: 1px solid #dedddd;
+    border-radius: 5px;
+    color: grey;
+    width: 60%;
+    margin-right: 20%;
+    font-weight: 500;
+    border-style: dashed;
+    border-color: lightblue;
+}
+
+
+
+.plus-logo {
+    float: left;    
+    padding-left: 15px;
+    padding-right: 15px ;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 10px;
+    background-image: url(../Common/Logos/Plus1.png);    
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+
+/* GLOBAL COLOR VARIABLE TO SHARE ACROSS CSS CLASSES */
+:root {
+    --lightblue: lightblue;
+}
+
+.info-msg {
+    display: flex;
+    margin: 5% 0px;
+    border: solid 2px var(--lightblue);
+    padding: 1%;
+}
+
+
+.info-msg-text{
+    margin: 0px;
+    padding: 0px 10px;
+    font-size: .8em;
+    color:grey;
+}
+
+span.info-logo{
+    position:relative;
+}
+span.info-logo:before {
+    float: left;
+    color: white;
+    font-family: FontAwesome;
+    content: "\f12a";
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: var(--lightblue);
+    text-align: center;
+    padding: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+/* .info-msg {
+    
+    margin-top: 25px;
+    font-size: 1em;
+
+    border: 2px solid #dedddd;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #add8e6;
+    display: flex;
+
+}
+.info-msg i {
+    background-color: inherit;
+}
+.info-msg div {
+    margin-left: 20px;
+}
+.info-msg span {
+
+    float: left;    
+    padding-left: 15px;
+    padding-right: 15px ;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 10px;
+
+    background-image: url(../Common/Logos/Info.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+} */

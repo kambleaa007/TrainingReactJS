@@ -1,0 +1,39 @@
+
+.Send {
+    margin-left: 18%;
+    margin-right: 18%;
+    box-shadow: 2px 2px 7px rgba(0,0,0,0.7);
+    padding: 20px;
+}
+
+.SendHeader {
+    padding: 30px ;
+    list-style-type: none;
+    color: grey;
+    margin-left: 10%;
+    
+}
+
+.SendHeader p {
+    border-bottom: 1px solid #aaa;
+    width:80px;
+    padding-bottom: 5px;
+}
+
+.SendHeader ul {
+    padding-left: 0px;
+}
+
+.SendHeader label {
+    display: block;
+}
+.SendHeader select{
+    background: #FDFFFF;
+    padding: 10px;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    border: 1px solid #dedddd;
+    border-radius: 5px;
+    color: grey;
+    width: 70%;
+}

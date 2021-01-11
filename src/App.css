@@ -1,0 +1,13 @@
+.App {
+  
+}
+
+
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #282c34;
+}
+

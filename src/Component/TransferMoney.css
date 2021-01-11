@@ -1,0 +1,30 @@
+
+.Transfer {
+    margin-left: 18%;
+    margin-right: 18%;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    box-shadow: 2px 2px 7px rgba(0,0,0,0.7);
+    padding: 20px;
+}
+
+.Select {
+    padding: 30px 25px;
+    list-style-type: none;
+}
+.label {
+    display: block;
+    /* margin-left: 20%; */
+}
+.Select select{
+    background: #FDFFFF;
+    padding: 10px;
+    /* margin-left: 20%; */
+    margin-right: 20%;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    border: 1px solid #dedddd;
+    border-radius: 5px;
+    color: grey;
+    width: 70%;
+}

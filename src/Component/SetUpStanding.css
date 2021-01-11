@@ -1,0 +1,59 @@
+/* 
+NOT WORKING SCOLLBAR IF LIST IS BIG
+.set-up-standing-order-body option{
+    max-height: 500px;
+    overflow-y: scroll;
+} 
+*/
+
+
+.set-up-standing-title {
+    background-color:#eaeef4;
+    
+}
+.time-info {
+    font-size: .9em;
+    padding: 10px;
+}
+.time-info i{
+    color: blue;
+}
+.info-middle{
+    color: rgb(31, 31, 211);
+}
+
+.set-up-standing-order-body {
+    padding: 30px ;
+    list-style-type: none;
+    color: grey;
+}
+.set-up-standing-order-body ul {
+    padding-left: 0px;
+}
+.set-up-standing-order-body label {
+    display: block;
+    color: lightblue;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    width: 100px;
+}
+.account-info{
+    font-size: .9em;
+}
+.pay-from{
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+.pay-from-text{
+}
+.set-up-standing-order-body select{
+    background: #FDFFFF;
+    padding: 10px;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    border: 1px solid #dedddd;
+    border-radius: 5px;
+    color: grey;
+    width: 100%;
+}
+

@@ -1,0 +1,7 @@
+{
+    "countries" : [
+        { "id": "1", "country": "USA" },
+        { "id": "2", "country": "CANADA" },
+        { "id": "3", "country": "INDIA" }    
+    ]
+}
