@@ -1,6 +1,8 @@
 import React, {useEffect, useState, useContext } from 'react';
+
 import Header from "./Header";
 
+import { useHistory } from "react-router-dom";
 
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 
@@ -24,6 +26,8 @@ function PrivateBankingPaymentBody(props) {
 
     const globalContext = useContext(GlobalContext);
     let match = useRouteMatch();
+    
+    let history = useHistory();
 
     const [value,setValue] = useState('');
     const handleSelect= (e) =>{
@@ -66,7 +70,7 @@ function PrivateBankingPaymentBody(props) {
             </div>
             <div className="private-banking-footer">
                 <div className="d-flex justify-content-between">
-                    <button class="go-back-button">Go back</button>
+                    <button class="go-back-button" onClick={() => history.goBack()}>Go back</button>
                     <button class="req-payment-button">Request payment</button>
                 </div>
             </div>
