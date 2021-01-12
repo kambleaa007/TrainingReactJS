@@ -12,6 +12,7 @@ import StandingOrder from "./Component/StandingOrder";
 import SetUpStanding from "./Component/SetUpStanding";
 import PrivateBankingPayment from "./Component/PrivateBankingPayment";
 import MobileTopUp from "./Component/MobileTopUp";
+import DirectDebit from "./Component/DirectDebit";
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -40,6 +41,7 @@ function App() {
               <Route path="/setUpNewOrder" component={(props) => ( <SetUpStanding  name={'Set up Standing...'} isBack={true} /> )} />
               <Route path="/privateBankingPayment" component={(props) => ( <PrivateBankingPayment  name={'Private Banking Payment'} isBack={true} /> )} />
               <Route path="/mobileTopup" component={(props) => ( <MobileTopUp  name={'Mobile Top Up'} isBack={true} /> )} />
+              <Route path="/directDebits" component={(props) => ( <DirectDebit  name={'SEPA Direct Debit Services'} isBack={true} /> )} />
             
               
             </Switch>
