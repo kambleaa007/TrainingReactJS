@@ -11,7 +11,7 @@ import TransferMoney from "./Component/TransferMoney";
 import StandingOrder from "./Component/StandingOrder";
 import SetUpStanding from "./Component/SetUpStanding";
 import PrivateBankingPayment from "./Component/PrivateBankingPayment";
-
+import MobileTopUp from "./Component/MobileTopUp";
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -39,6 +39,7 @@ function App() {
               <Route path="/standingOrders" component={(props) => ( <StandingOrder name={'Standing Orders'} isBack={true} setData={setData} accounts={data.Accounts}  /> )} />
               <Route path="/setUpNewOrder" component={(props) => ( <SetUpStanding  name={'Set up Standing...'} isBack={true} /> )} />
               <Route path="/privateBankingPayment" component={(props) => ( <PrivateBankingPayment  name={'Private Banking Payment'} isBack={true} /> )} />
+              <Route path="/mobileTopup" component={(props) => ( <MobileTopUp  name={'Mobile Top Up'} isBack={true} /> )} />
             
               
             </Switch>
