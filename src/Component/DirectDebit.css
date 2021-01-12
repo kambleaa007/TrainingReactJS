@@ -64,3 +64,40 @@
     top: 10px;
     right: 15px;
 } */
+
+.body-1 {
+    width: 100%;
+    border: 1px solid #037288;
+	padding: 0 1%;
+	border-radius: 2px;
+    padding-bottom:15px;
+    font-size: .8em;
+    border: none;
+}
+.body-2 {
+    width: 100%;
+    border: 1px solid #037288;
+	padding: 0 1%;
+	border-radius: 2px;
+    padding-bottom:15px;
+    font-size: .8em;
+    border: none;
+}
+.body-3 {
+    width: 100%;
+    border: 1px solid #037288;
+	padding: 0 1%;
+	border-radius: 2px;
+    padding-bottom:15px;
+    font-size: .8em;
+    border: none;
+}
+.body-4 {
+    width: 100%;
+    border: 1px solid #037288;
+	padding: 0 1%;
+	border-radius: 2px;
+    padding-bottom:15px;
+    font-size: .8em;
+    border: none;
+}

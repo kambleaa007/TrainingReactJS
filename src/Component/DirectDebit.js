@@ -27,23 +27,23 @@ function DirectDebit(props) {
 
 function DirectDebitBody(props) {
     return(
-    <div>
-        <div className="top-heading">
-            <div className="help-info">
-                <p><i className="fa fa-question"></i>
-                    Need a hand?
-                </p>
-            </div>                
-            <div className="next-arrow">
-                <i className="fa fa-chevron-right"></i>
+        <div>
+            <div className="top-heading">
+                <div className="help-info">
+                    <p><i className="fa fa-question"></i>
+                        Need a hand?
+                    </p>
+                </div>                
+                <div className="next-arrow">
+                    <i className="fa fa-chevron-right"></i>
+                </div>
+            </div>  
+            <div className="Send">
+                <AccordionList />
+
+
             </div>
-        </div>  
-        <div className="Send">
-            <AccordionList />
-
-
         </div>
-    </div>
     )
 }
 
@@ -65,8 +65,7 @@ function chgStyle(e) {
 
 function AccordionList(props) {
 
-    const globalContext = useContext(GlobalContext);
-
+    
 
     const [Accordion,setAccordion] = useState(
         [
@@ -133,28 +132,72 @@ export default DirectDebit;
 function Body1(props) {
     return(
         <div>
-            Body1
+            <div className="body-1">
+                <p>
+                 <span><i className="fa fa-check" style={{color:"blue",paddingRight: '1%'}}></i></span>
+				 <span>This means the bank will permenantly cancel all SEPA direct debit payments for this mandate.</span>
+				</p>
+				<p>
+                  <span><i className="fa fa-check" style={{color:"blue",paddingRight: '1%'}}></i></span>
+				  <span>Once this request is processed it cannot be reversed.</span>
+			    </p>
+			    <p>
+                  <span><i className="fa fa-check" style={{color:"blue",paddingRight: '1%'}}></i></span>
+				  <span>You need to submit your request by 3pm, one working day before the next payment is due.</span>
+				</p>
+				
+				<h6>Request form...</h6>
+			    <h6 style={{color:"blue"}}>You'll need:</h6>
+				
+				<p><i className="fa fa-check-circle" style={{color:"blue",paddingRight: '1%'}}></i>
+				   Creditor name and ID
+				   <a href="#" style={{float:"right"}}>What is a creditor ID?</a></p>
+			
+			
+			    <p><i class="fa fa-check-circle" style={{color:"blue", paddingRight: '1%'}}></i>
+				Unique mandate reference (UMR)
+				<a href="#" style={{float:"right"}}><u>Where's my UMR?</u></a></p>
+				
+                <div className="d-flex justify-content-center">
+                    <button class="req-payment-button">Continue</button>
+                </div>
+			
+              </div>
         </div>
     )
 }
 function Body2(props) {
     return(
         <div>
-            Body2
+            <div class="body-2">
+                <p>Make a selection</p>
+                <div className="d-flex justify-content-center">
+                    <button class="" style={{width:"40%"}}>Refuse Next</button>
+                    <button class="" style={{width:"40%"}}>Refuse All</button>
+                </div>
+            </div>
         </div>
     )
 }
 function Body3(props) {
     return(
         <div>
-            Body3
+            <div class="body-3">
+                <p>Body 3</p>
+            </div>
         </div>
     )
 }
 function Body4(props) {
     return(
         <div>
-            Body4
+            <div class="body-4">
+                <p>Make a selection</p>
+                <div className="d-flex justify-content-center">
+                    <button class="" style={{width:"40%"}}>Block</button>
+                    <button class="" style={{width:"40%"}}>Unblock</button>
+                </div>
+            </div>
         </div>
     )
 }
