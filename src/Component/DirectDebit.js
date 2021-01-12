@@ -48,39 +48,148 @@ function DirectDebitBody(props) {
 }
 
 
+function chgStyle(e) {
+    //console.log("clikkk chg" +e.target.classList);
+
+
+    if(e.target.classList.contains("card-header")){
+        e.target.classList.remove("card-header");
+        e.target.classList.add("new-card-header");
+    }else{
+        e.target.classList.remove("new-card-header");
+        e.target.classList.add("card-header");        
+    }
+    
+    
+}
+
 function AccordionList(props) {
+
+    const globalContext = useContext(GlobalContext);
+
+
+    const [Accordion,setAccordion] = useState(
+        [
+            {
+                "id":"0",
+                "title":"Cancel direct debit mandate",
+                "body":""
+            },
+            {
+                "id":"1",
+                "title":"Refuse next/all direct debits",
+                "body":""
+            },
+            {
+                "id":"2",
+                "title":"Reactivate next/all direct debits",
+                "body":""
+            },
+            {
+                "id":"3",
+                "title":"block/unblock direct debits",
+                "body":""
+            }
+        ]
+    );
+
     return(
-        <div>  
-            <Accordion defaultActiveKey="null">
+        <div>
+            {Accordion.map(i=>{
+                return(
+                    <Accord id={i.id} title={i.title} body={i.body} />
+                )
+            })}
 
-            <Card>
-            <Card.Header>
-                <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                Panel 1
-                </Accordion.Toggle>
-            </Card.Header>
+        </div>
+    )
+}
 
-            <Accordion.Collapse eventKey="0">
-                <Card.Body>Body content for panel 1</Card.Body>
-            </Accordion.Collapse>
-            </Card>
+function Accord({id, title, body}) {
+    return(
+        <div key={id}>
+            <Accordion defaultActiveKey="">
+                <Card >
+                    <Accordion.Toggle as={Card.Header} variant="link" eventKey={id} onClick={(e)=>chgStyle(e)}>
+                    {title}
+                    </Accordion.Toggle>
 
-            <Card>
-            <Card.Header>
-                <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                Panel 2
-                </Accordion.Toggle>
-            </Card.Header>
-
-            <Accordion.Collapse eventKey="1">
-                <Card.Body>Body content for panel 2</Card.Body>
-            </Accordion.Collapse>
-            </Card>
-
+                    <Accordion.Collapse eventKey={id}>
+                        <Card.Body>
+                            {
+                                id == "0" ? <Body1/>: id == "1" ? <Body2/>: id == "2" ? <Body3/>: <Body4/>                            
+                            }
+                        </Card.Body>
+                    </Accordion.Collapse>
+                </Card>
             </Accordion>
         </div>
     )
 }
 
-
 export default DirectDebit;
+
+
+function Body1(props) {
+    return(
+        <div>
+            Body1
+        </div>
+    )
+}
+function Body2(props) {
+    return(
+        <div>
+            Body2
+        </div>
+    )
+}
+function Body3(props) {
+    return(
+        <div>
+            Body3
+        </div>
+    )
+}
+function Body4(props) {
+    return(
+        <div>
+            Body4
+        </div>
+    )
+}
+// function AccordionList(props) {
+//     return(
+//         <div>  
+//             <Accordion defaultActiveKey="">
+//                 <Card>
+//                 {/* <Card.Header className=""> */}
+//                     <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" onClick={(e)=>chgStyle(e)}>
+//                     Cancel direct debit mandate
+//                     </Accordion.Toggle>
+//                 {/* </Card.Header> */}
+
+//                 <Accordion.Collapse eventKey="0">
+//                     <Card.Body>Body content for panel 1</Card.Body>
+//                 </Accordion.Collapse>
+//                 </Card>
+//             </Accordion>
+
+//             <Accordion defaultActiveKey="">
+//                 <Card >
+//                 {/* <Card.Header className=""> */}
+//                     <Accordion.Toggle as={Card.Header} variant="link" eventKey="1" onClick={(e)=>chgStyle(e)}>
+//                     Refuse next/all direct debits
+//                     </Accordion.Toggle>
+//                 {/* </Card.Header> */}
+
+//                 <Accordion.Collapse eventKey="1">
+//                     <Card.Body>Body content for panel 2</Card.Body>
+//                 </Accordion.Collapse>
+//                 </Card>
+//             </Accordion>
+
+
+//         </div>
+//     )
+// }

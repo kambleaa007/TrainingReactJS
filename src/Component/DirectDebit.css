@@ -19,3 +19,48 @@
     background: #0d480c;
     padding: 1%;
 }
+
+
+.card-header {
+    position: relative;
+    color: cornflowerblue;
+    background: none;
+}
+.card-header::after {
+    content: "\f077";
+    color: #333;
+    top: -1px;
+    right: 10px;
+    position: absolute;
+    font-family: "FontAwesome"
+}
+
+.new-card-header {
+    position: relative;
+    padding-left: 20px;
+    padding-top: 10px;
+    color: cornflowerblue;
+}
+.new-card-header::after {
+    content: "\f078";
+    color: #333;
+    top: -1px;
+    right: 10px;
+    position: absolute;
+    font-family: "FontAwesome"
+}
+/* .card-header[aria-expanded="true"]::after {
+    content: "\f078";
+}
+.card-header-full {
+    padding: 0;
+}
+
+.card-header-full {
+    padding: 10px 15px;
+}
+
+.card-header-full::after {
+    top: 10px;
+    right: 15px;
+} */

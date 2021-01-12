@@ -74,6 +74,29 @@
             "cvv-value":"257", 
             "expires":"12/2025"
         }
+    ],
+
+    "Accordion":[
+        {
+            "id":"0",
+            "title":"Cancel direct debit mandate",
+            "body":""
+        },
+        {
+            "id":"1",
+            "title":"Refuse next/all direct debits",
+            "body":""
+        },
+        {
+            "id":"2",
+            "title":"Reactivate next/all direct debits",
+            "body":""
+        },
+        {
+            "id":"3",
+            "title":"block/unblock direct debits",
+            "body":""
+        }
     ]
 
 }
