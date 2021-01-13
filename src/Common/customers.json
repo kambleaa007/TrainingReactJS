@@ -9,6 +9,53 @@
                 "1234",
                 "1478",
                 "1598"
+            ],
+            "transactions":[
+                {
+                    "id":"0",
+                    "status":"PENDING",
+                    "payee_name":"abcd",
+                    "amount":1000.00,
+                    "due_date":"10/10/2020",
+                    "type":"DEBITED"
+
+                },
+                {
+                    "id":"1",
+                    "status":"UNSUCCESSFUL",
+                    "payee_name":"abcd",
+                    "amount":990.00,
+                    "due_date":"10/10/2020",
+                    "type":"CREDITED"
+                    
+                },
+                {
+                    "id":"2",
+                    "status":"SUCCESSFUL",
+                    "payee_name":"abcd",
+                    "amount":590.00,
+                    "due_date":"10/10/2020",
+                    "type":"DEBITED"
+
+                },
+                {
+                    "id":"3",
+                    "status":"PENDING",
+                    "payee_name":"abcd",
+                    "amount":660.00,
+                    "due_date":"10/10/2020",
+                    "type":"DEBITED"
+
+                },
+                {
+                    "id":"4",
+                    "status":"CANCELLED",
+                    "payee_name":"abcd",
+                    "amount":0.00,
+                    "due_date":"10/10/2020",
+                    "type":"DEBITED"
+
+                }
             ]
         },
         {
@@ -20,6 +67,9 @@
                 "2234",
                 "2478",
                 "2598"
+            ],
+            "transactions":[
+                {},{}
             ]
         },
         {
@@ -31,6 +81,9 @@
                 "3234",
                 "3478",
                 "3598"
+            ],
+            "transactions":[
+                {},{}
             ]
         },
         {
@@ -42,6 +95,9 @@
                 "4234",
                 "4478",
                 "4598"
+            ],
+            "transactions":[
+                {},{}
             ]
         },
         {
@@ -53,6 +109,9 @@
                 "5234",
                 "5478",
                 "5598"
+            ],
+            "transactions":[
+                {},{}
             ]
         }
     ],
