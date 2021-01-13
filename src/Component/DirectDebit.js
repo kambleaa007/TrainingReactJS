@@ -96,7 +96,7 @@ function AccordionList(props) {
         <div>
             {Accordion.map(i=>{
                 return(
-                    <Accord key={i.id} id={i.id} title={i.title} body={i.body} />
+                    <Accord key={i.id} id={i.id} title={i.title} body={getBodies(i.id)} />
                 )
             })}
 
@@ -116,7 +116,9 @@ function Accord({id, title, body}) {
                     <Accordion.Collapse eventKey={id}>
                         <Card.Body>
                             {
-                                id == "0" ? <Body1/>: id == "1" ? <Body2/>: id == "2" ? <Body3/>: <Body4/>                            
+                                
+                                body //getBodies(id) // id == "0" ? <Body1/>: id == "1" ? <Body2/>: id == "2" ? <Body3/>: <Body4/>   
+                                                         
                             }
                         </Card.Body>
                     </Accordion.Collapse>
@@ -126,8 +128,27 @@ function Accord({id, title, body}) {
     )
 }
 
+
+
 export default DirectDebit;
 
+
+// just binds Accord Body with respective Accord Card header id
+//id == "0" ? <Body1/>: id == "1" ? <Body2/>: id == "2" ? <Body3/>: <Body4/>
+function getBodies(id) {
+
+    if(id==="0")
+        return <Body1 />
+    else if(id==="1")
+        return <Body2 />    
+    else if(id==="2")
+        return <Body3 />
+    else if(id==="3")
+        return <Body4 />   
+    else
+        return "ERR!!! BODY DOENT EXIST LETS CREATE NEW BODY"
+
+}
 
 function Body1(props) {
     return(

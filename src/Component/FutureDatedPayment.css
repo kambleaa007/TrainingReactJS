@@ -1,0 +1,52 @@
+.payment-table {
+    font-size: .8em;
+}
+
+
+.payment-pending-status {
+    
+    position: relative;
+}
+.payment-pending-status::before {
+    
+    font-family: "FontAwesome";
+    content: "\f017";
+    color: cornflowerblue;
+    padding-right: 8px;
+}
+
+.payment-unsuccess-status {
+    
+    position: relative;
+}
+.payment-unsuccess-status::before {
+    
+    font-family: "FontAwesome";
+    content: "\f00d";
+    color: red;
+    padding-right: 8px;
+}
+
+.payment-success-status {
+    
+    position: relative;
+}
+.payment-success-status::before {
+    
+    font-family: "FontAwesome";
+    content: "\f00c";
+    color: green;
+    padding-right: 8px;
+}
+
+.payment-cancel-status {
+    
+    position: relative;
+}
+.payment-cancel-status::before {
+    
+    font-family: "FontAwesome";
+    content: "\f05e";
+    color: grey;
+    padding-right: 8px;
+}
