@@ -1,13 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Header from "./../Component/Header";
 
 //import DropdownButton from 'react-bootstrap/DropdownButton';
 //import Dropdown from 'react-bootstrap/Dropdown'
 import './TransferMoney.css'
+import { GlobalContext } from "./../Context/GlobalContext";
+
 
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TransferMoney(props) {
+    
     
     useEffect(()=>{
 
@@ -30,6 +33,10 @@ export default TransferMoney;
 
 function TransferBody(props) {
     
+
+    const globalContext = useContext(GlobalContext);
+
+
     const [value,setValue] = useState('');
     const handleSelect= (e) =>{
       setValue(e)
@@ -67,7 +74,7 @@ function TransferBody(props) {
             <select onChange={(event) => handleSelect(event.target.value)}>
                 <option value="">Select account to transfer from</option>
                 {
-                    props.accounts.map(i => (
+                    globalContext.Global.Accounts.map(i => (
                         <option value={i.id} key={i.id}>{i.name}</option>
                     ))
                 }
@@ -76,7 +83,7 @@ function TransferBody(props) {
             <select>
                 <option value="">select account to transfer to</option>
                 {
-                    props.accounts.map(i => (
+                    globalContext.Global.Accounts.map(i => (
                         i.id === value ?  
                             i.linked_accounts.map(j=>(<option key={j}>{j}</option>)) : 
                             null
