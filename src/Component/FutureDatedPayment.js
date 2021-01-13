@@ -11,7 +11,7 @@ import { GlobalContext } from "../Context/GlobalContext";
 function FutureDatedPayment(props) {
     return(
         <div>
-            <Header name={props.name} isBack={props.isBack}/>
+            <Header name={'Future Dated Payments'} isBack={true}/>
             <FutureDatedPaymentBody />
 
         </div>

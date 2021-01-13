@@ -20,8 +20,8 @@ function TransferMoney(props) {
     return(
 
         <div className="Payments">
-            <Header name={props.name} isBack={props.isBack}/>
-            <TransferBody {...props}/>
+            <Header name={'Transfer Between'} isBack={true}/>
+            <TransferBody />
         </div>
 
     );

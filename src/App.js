@@ -35,15 +35,15 @@ function App() {
 
 
             <Switch>
-              <Route path="/" exact component= { (props) => ( <HomeComponent name={"Payments"} isBack={false}  /> )} />
-              <Route path="/sendMoney" component={ (props) => ( <SendMoney name={'Send Money'} isBack={true}  /> )} />
-              <Route path="/transferMoney" component={(props) => ( <TransferMoney name={'Transfer Between'} isBack={true}  /> )} />
-              <Route path="/standingOrders" component={(props) => ( <StandingOrder name={'Standing Orders'} isBack={true}   /> )} />
-              <Route path="/setUpNewOrder" component={(props) => ( <SetUpStanding  name={'Set up Standing...'} isBack={true} /> )} />
-              <Route path="/privateBankingPayment" component={(props) => ( <PrivateBankingPayment  name={'Private Banking Payment'} isBack={true} /> )} />
-              <Route path="/mobileTopup" component={(props) => ( <MobileTopUp  name={'Mobile Top Up'} isBack={true} /> )} />
-              <Route path="/directDebits" component={(props) => ( <DirectDebit  name={'SEPA Direct Debit Services'} isBack={true} /> )} />
-              <Route path="/futureDatedPayments" component={(props) => ( <FutureDatedPayment  name={'Future Dated Payments'} isBack={true} /> )} />
+              <Route path="/" exact component= { (props) => ( <HomeComponent  /> )} />
+              <Route path="/sendMoney" component={ (props) => ( <SendMoney   /> )} />
+              <Route path="/transferMoney" component={(props) => ( <TransferMoney   /> )} />
+              <Route path="/standingOrders" component={(props) => ( <StandingOrder   /> )} />
+              <Route path="/setUpNewOrder" component={(props) => ( <SetUpStanding   /> )} />
+              <Route path="/privateBankingPayment" component={(props) => ( <PrivateBankingPayment  /> )} />
+              <Route path="/mobileTopup" component={(props) => ( <MobileTopUp   /> )} />
+              <Route path="/directDebits" component={(props) => ( <DirectDebit   /> )} />
+              <Route path="/futureDatedPayments" component={(props) => ( <FutureDatedPayment   /> )} />
             
               
             </Switch>

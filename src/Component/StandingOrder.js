@@ -21,7 +21,7 @@ function StandingOrder(props) {
     return (
 
         <div className="Payments">
-            <Header name={props.name} isBack={props.isBack}/>
+            <Header name={'Standing Orders'} isBack={true}/>
             <StandingOrderBody />
 
             {/* <Switch>

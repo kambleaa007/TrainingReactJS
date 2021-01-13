@@ -18,7 +18,7 @@ function SendMoney(props) {
     return ( 
         
         <div className="Payments">
-            <Header name={props.name} isBack={props.isBack}/>
+            <Header name={'Send Money'} isBack={true}/>
             <SendBody />
             {
             /* <GlobalConsumer>

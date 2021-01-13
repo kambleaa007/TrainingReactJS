@@ -11,7 +11,7 @@ import "./SetUpStanding.css";
 function SetUpStanding(props) {
     return(
         <div>
-            <Header name={props.name} isBack={props.isBack}/>
+            <Header name={'Set up Standing...'} isBack={true}/>
             <SetUpStandingBody />
         
         </div>

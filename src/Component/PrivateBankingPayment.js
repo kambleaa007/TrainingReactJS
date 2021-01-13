@@ -13,7 +13,7 @@ import "./PrivateBankingPayment.css";
 function PrivateBankingPayment(props) {
     return(
         <div>
-            <Header name={props.name} isBack={props.isBack}/>
+            <Header name={'Private Banking Payment'} isBack={true}/>
             <PrivateBankingPaymentBody />
         
         </div>

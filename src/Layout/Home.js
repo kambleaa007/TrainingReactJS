@@ -12,7 +12,7 @@ import { Route, Switch } from 'react-router-dom';
 function HomeComponent(props) {
     return (
         <div className="Payments">
-            <Header name={props.name} isBack={props.isBack}/>
+            <Header name={"Payments"} isBack={false}/>
             <Operations />
 
         </div>

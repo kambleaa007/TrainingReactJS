@@ -18,7 +18,7 @@ function MobileTopUp(props) {
     return ( 
         
         <div className="Payments">
-            <Header name={props.name} isBack={props.isBack}/>
+            <Header name={'Mobile Top Up'} isBack={true}/>
             <MobileTopUpBody />
             {
             /* <GlobalConsumer>

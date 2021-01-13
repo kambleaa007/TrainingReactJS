@@ -16,7 +16,7 @@ function DirectDebit(props) {
     
     return(
         <div className="Payments">
-            <Header name={props.name} isBack={props.isBack}/>
+            <Header name={'SEPA Direct Debit Services'} isBack={true}/>
             <DirectDebitBody />
 
         </div>
