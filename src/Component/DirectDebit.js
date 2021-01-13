@@ -96,7 +96,7 @@ function AccordionList(props) {
         <div>
             {Accordion.map(i=>{
                 return(
-                    <Accord id={i.id} title={i.title} body={i.body} />
+                    <Accord key={i.id} id={i.id} title={i.title} body={i.body} />
                 )
             })}
 
@@ -151,15 +151,15 @@ function Body1(props) {
 				
 				<p><i className="fa fa-check-circle" style={{color:"blue",paddingRight: '1%'}}></i>
 				   Creditor name and ID
-				   <a href="#" style={{float:"right"}}>What is a creditor ID?</a></p>
+				   <a href="#" style={{float:"right"}}><em><u>What is a creditor ID?</u></em></a></p>
 			
 			
-			    <p><i class="fa fa-check-circle" style={{color:"blue", paddingRight: '1%'}}></i>
+			    <p><i className="fa fa-check-circle" style={{color:"blue", paddingRight: '1%'}}></i>
 				Unique mandate reference (UMR)
-				<a href="#" style={{float:"right"}}><u>Where's my UMR?</u></a></p>
+				<a href="#" style={{float:"right"}}><em><u>Where's my UMR?</u></em></a></p>
 				
                 <div className="d-flex justify-content-center">
-                    <button class="req-payment-button">Continue</button>
+                    <button className="req-payment-button">Continue</button>
                 </div>
 			
               </div>
@@ -169,11 +169,11 @@ function Body1(props) {
 function Body2(props) {
     return(
         <div>
-            <div class="body-2">
+            <div className="body-2">
                 <p>Make a selection</p>
                 <div className="d-flex justify-content-center">
-                    <button class="" style={{width:"40%"}}>Refuse Next</button>
-                    <button class="" style={{width:"40%"}}>Refuse All</button>
+                    <button className="" style={{width:"40%"}}>Refuse Next</button>
+                    <button className="" style={{width:"40%"}}>Refuse All</button>
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@ function Body2(props) {
 function Body3(props) {
     return(
         <div>
-            <div class="body-3">
+            <div className="body-3">
                 <p>Body 3</p>
             </div>
         </div>
@@ -191,11 +191,11 @@ function Body3(props) {
 function Body4(props) {
     return(
         <div>
-            <div class="body-4">
+            <div className="body-4">
                 <p>Make a selection</p>
                 <div className="d-flex justify-content-center">
-                    <button class="" style={{width:"40%"}}>Block</button>
-                    <button class="" style={{width:"40%"}}>Unblock</button>
+                    <button className="" style={{width:"40%"}}>Block</button>
+                    <button className="" style={{width:"40%"}}>Unblock</button>
                 </div>
             </div>
         </div>
