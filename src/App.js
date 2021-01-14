@@ -14,10 +14,12 @@ import PrivateBankingPayment from "./Component/PrivateBankingPayment";
 import MobileTopUp from "./Component/MobileTopUp";
 import DirectDebit from "./Component/DirectDebit";
 import FutureDatedPayment from "./Component/FutureDatedPayment";
+import ManagePayee from "./Component/ManagePayee";
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { GlobalProvider } from "./Context/GlobalContext";
+import { HeaderProvider } from "./Context/HeaderContext";
 
 import data from './Common/customers.json'
 
@@ -27,8 +29,11 @@ function App() {
   const [IsBack,setIsBack] = useState(false);
   const [Data, setData] = useState(data);
 
+  
+
   return (
     <GlobalProvider value= {{Global: Data}} >
+    <HeaderProvider>
     <BrowserRouter>
       <div className="App">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -44,6 +49,7 @@ function App() {
               <Route path="/mobileTopup" component={(props) => ( <MobileTopUp   /> )} />
               <Route path="/directDebits" component={(props) => ( <DirectDebit   /> )} />
               <Route path="/futureDatedPayments" component={(props) => ( <FutureDatedPayment   /> )} />
+              <Route path="/managePayees" component={(props) => ( <ManagePayee   /> )} />
             
               
             </Switch>
@@ -51,6 +57,7 @@ function App() {
 
         </div>
     </BrowserRouter>
+    </HeaderProvider>
     </GlobalProvider>
     
   );

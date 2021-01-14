@@ -5,9 +5,15 @@ import './SendMoney.css'
 
 import { GlobalContext } from "./../Context/GlobalContext";
 
+import { HeaderContext } from "./../Context/HeaderContext";
+
 function SendMoney(props) {
 
     const globalContext = useContext(GlobalContext);
+
+    let { state, dispatch } = useContext(HeaderContext);
+
+    let inc = () => dispatch({ type: "increment" });
 
 
     useEffect(()=>{
@@ -20,6 +26,14 @@ function SendMoney(props) {
         <div className="Payments">
             <Header name={'Send Money'} isBack={true}/>
             <SendBody />
+
+            {state.color}
+            <p>
+            Current count: <b>{state.count}</b>
+            </p>
+            <button onClick={inc}>Increment!</button>
+
+
             {
             /* <GlobalConsumer>
                 {
@@ -45,7 +59,7 @@ function SendBody(props) {
 
     const globalContext = useContext(GlobalContext);
 
-
+    
     const [value,setValue] = useState('');
     const handleSelect= (e) =>{
       setValue(e)
