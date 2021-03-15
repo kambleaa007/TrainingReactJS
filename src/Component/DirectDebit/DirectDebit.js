@@ -1,13 +1,12 @@
 import React, {useEffect, useState, useContext } from 'react';
-import Header from "./Header";
+import Header from "../../Common/Header/Header";
 import { Accordion, Card, Button } from 'react-bootstrap'
 
 
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 
-import { GlobalContext } from "../Context/GlobalContext";
+import { GlobalContext } from "../../Context/GlobalContext";
 import "./DirectDebit.css";
-
 
 
 function DirectDebit(props) {

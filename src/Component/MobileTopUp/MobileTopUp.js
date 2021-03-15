@@ -1,9 +1,9 @@
 import React, {useEffect, useState, useContext } from 'react';
-import Header from "./Header";
+import Header from "../../Common/Header/Header";
 
-import './SendMoney.css'
+import './../SendMoney/SendMoney.css'
 
-import { GlobalContext } from "../Context/GlobalContext";
+import { GlobalContext } from "../../Context/GlobalContext";
 
 function MobileTopUp(props) {
 

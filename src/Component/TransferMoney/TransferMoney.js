@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
-import Header from "./../Component/Header";
+import Header from "../../Common/Header/Header";
 
 //import DropdownButton from 'react-bootstrap/DropdownButton';
 //import Dropdown from 'react-bootstrap/Dropdown'
 import './TransferMoney.css'
-import { GlobalContext } from "./../Context/GlobalContext";
+import { GlobalContext } from "./../../Context/GlobalContext";
 
 
 //import 'bootstrap/dist/css/bootstrap.min.css';
