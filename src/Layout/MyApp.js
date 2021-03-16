@@ -15,6 +15,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Avatar from '@material-ui/core/Avatar';
+import { useState } from 'react';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -91,9 +92,14 @@ const useStyles = makeStyles((theme) => ({
   ];
 
 
+
+// TODO: jsPanel
 function MyAppComponent(props) {
 
-    
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 
     return (
@@ -193,6 +199,16 @@ const Chatting = () => {
     )
 };
 
+
+function Login(props) {
+
+
+
+    return(
+        <div>Login</div>
+
+    )
+}
 
 const LeftSider = () => {
     return(
