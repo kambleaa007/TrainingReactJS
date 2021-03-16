@@ -16,7 +16,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Avatar from '@material-ui/core/Avatar';
 import { useState } from 'react';
+import Toast from 'react-bootstrap/Toast'
+import ToastHeader from 'react-bootstrap/ToastHeader';
+import ToastBody from 'react-bootstrap/ToastBody';
 
+//Adding antd modules and style
+import { Button as Button1, Modal, Form, Input, Radio } from 'antd';
+import "antd/dist/antd.css";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -96,10 +102,7 @@ const useStyles = makeStyles((theme) => ({
 // TODO: jsPanel
 function MyAppComponent(props) {
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 
     return (
@@ -140,6 +143,7 @@ function MyAppBody (props) {
                 <div className="col-md-1"></div>
                 <div className="col-md-10">
                     <Chatting />
+                    <Login />
                 </div>
                 <div className="col-md-1"></div>
             </div>
@@ -202,12 +206,155 @@ const Chatting = () => {
 
 function Login(props) {
 
+    const [username, setUsername] = useState("a"); // Matching username
+    const [password, setPassword] = useState("a"); // Matching pwd
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Login or Sucess Message
+
+    const [show, setShow] = useState(false); // ToastMsg
+
+    const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
+        const [form] = Form.useForm();
+        return (
+          <Modal
+            visible={visible}
+            title="Login"
+            okText="Login"
+            cancelText="Cancel"
+            onCancel={onCancel}
+            onOk={() => {
+              form
+                .validateFields()
+                .then((values) => {
+                  form.resetFields();
+                  onCreate(values);
+                })
+                .catch((info) => {
+                  console.log('Validate Failed:', info);
+                });
+            }}
+          >
+            <Form
+              form={form}
+              layout="vertical"
+              name="form_in_modal"
+              initialValues={{
+                modifier: 'public',
+              }}
+            >
+              <Form.Item
+                name="username"
+                label="User Name"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please enter username!',
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item name="password" label="Password"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please enter password!',
+                },
+              ]}
+              >
+                <Input type="password" />
+              </Form.Item>
+              
+            </Form>
+          </Modal>
+        );
+      };
+
+
+    const ToastMsg = () => {
+
+
+        return(
+            <Toast onClose={() => setShow(false)} show={show} delay={2000} autohide>
+                <ToastHeader>
+                <strong className="mr-auto">Try Again</strong>
+                <small>few mins ago</small>
+                </ToastHeader>
+                <ToastBody>Wrong credentials ... ... ...</ToastBody>
+            </Toast>
+        )
+    }
+
+    const CollectionsPage = () => {
+        const [visible, setVisible] = useState(false);
+      
+        const onCreate = (values) => {
+          console.log('Received values of form: ', values);
+        //   console.log('values.username ', values.username);
+        //   console.log('values.password ', values.password);
+        
+        // 
+
+        if(values.username === username && values.password === password){
+            console.log("Login success");
+            setIsLoggedIn(true); // dont show login again
+        }
+        else{
+            setShow(true);     // trigger ToastMsg default initialise True
+
+        }
+
+          
+            setVisible(false); // trigger pre existing logic of modal
+        };
+      
+        return (
+          <div>
+            <Button1
+              type="primary"
+              onClick={() => {
+                setVisible(true);
+              }}
+            >
+              Login
+            </Button1>
+            <CollectionCreateForm
+              visible={visible}
+              onCreate={onCreate}
+              onCancel={() => {
+                setVisible(false);
+              }}
+            />
+          </div>
+        );
+      };
+
+const LoggedIn = () => {
+    return(
+        <div>
+            <div>Logged In</div>
+            <Button1
+              type="primary"
+              onClick={() => setIsLoggedIn(false)}
+            >
+              Log Out
+            </Button1>
+        </div>
+    )
+}
 
 
     return(
-        <div>Login</div>
+            <div className="MainDiv">
+                <div className="jumbotron text-center">
+                    <div className="container">
+                    {isLoggedIn ? <LoggedIn /> : <CollectionsPage />}  
+                    <ToastMsg />
+                    </div>                      
+                </div>
 
-    )
+            </div>
+        );
 }
 
 const LeftSider = () => {
