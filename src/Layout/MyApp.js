@@ -142,7 +142,7 @@ function MyAppBody (props) {
             <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-10">
-                    <Chatting />
+                    {/* <Chatting /> Adding chat only after login sucess  */} 
                     <Login />
                 </div>
                 <div className="col-md-1"></div>
@@ -348,7 +348,7 @@ const LoggedIn = () => {
             <div className="MainDiv">
                 <div className="jumbotron text-center">
                     <div className="container">
-                    {isLoggedIn ? <LoggedIn /> : <CollectionsPage />}  
+                    {isLoggedIn ? <div><LoggedIn /><Chatting /></div> : <CollectionsPage />}  
                     <ToastMsg />
                     </div>                      
                 </div>
