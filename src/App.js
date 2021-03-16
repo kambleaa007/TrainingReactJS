@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 //import '../node_modules/react-bootstrap/dist/react-bootstrap';
 import React, { useEffect, useState }from 'react';
 import HomeComponent from './Layout/Home';
+import MyAppComponent from './Layout/MyApp';
+
 import SendMoney  from './Component/SendMoney/SendMoney';
 import TransferMoney from "./Component/TransferMoney/TransferMoney";
 import StandingOrder from "./Component/StandingOrder/StandingOrder";
@@ -49,6 +51,9 @@ function App() {
 
             <Switch>
               <Route path="/" exact component= { (props) => ( <HomeComponent  /> )} />
+              <Route path="/myApp" component={(props) => ( <MyAppComponent   /> )} />
+            
+            
               <Route path="/sendMoney" component={ (props) => ( <SendMoney   /> )} />
               <Route path="/transferMoney" component={(props) => ( <TransferMoney   /> )} />
               <Route path="/standingOrders" component={(props) => ( <StandingOrder   /> )} />
@@ -59,6 +64,7 @@ function App() {
               <Route path="/futureDatedPayments" component={(props) => ( <FutureDatedPayment   /> )} />
               <Route path="/managePayees" component={(props) => ( <ManagePayee   /> )} />
             
+
               
             </Switch>
             <Footer></Footer>
