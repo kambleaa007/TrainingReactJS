@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -23,6 +23,10 @@ import ToastBody from 'react-bootstrap/ToastBody';
 //Adding antd modules and style
 import { Button as Button1, Modal, Form, Input, Radio } from 'antd';
 import "antd/dist/antd.css";
+
+import { TransactionContext } from "../Context/TransactionContext";
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -104,7 +108,6 @@ function MyAppComponent(props) {
 
 
 
-
     return (
         <div>
             {/* text-center */}
@@ -118,17 +121,49 @@ function MyAppComponent(props) {
                     <div className="col-md-8">
 
                         <MyAppBody />
+
                     </div>
 
                     <div className="col-md-2">
                         <RightSider />
 
                     </div>
+
+                    <Check />
+
+
+                    
                 </div>
             </div>
             
         </div>
     );
+}
+
+
+
+function Check(props) {
+
+
+  let { state, dispatch } = useContext(TransactionContext);
+
+  let status = () => 
+      dispatch({ 
+        type: "ADD_CONTACT",
+        payload: { name: "newName", email: "newEmail" } 
+      });
+
+  return(
+
+  <div>
+      <button onClick={status}>status</button>
+      <p>contacts length is: {state.contacts.length}</p>   
+      <h3>
+        contacts name is {state.contacts.map(c=>c.name)}
+      </h3> 
+  </div> 
+
+  )
 }
 
 

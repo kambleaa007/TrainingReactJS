@@ -24,6 +24,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { GlobalProvider } from "./Context/GlobalContext";
 import { HeaderProvider } from "./Context/HeaderContext";
+import { TransactionProvider } from "./Context/TransactionContext";
 
 import data from './Common/customers.json'
 
@@ -44,6 +45,7 @@ function App() {
   return (
     <GlobalProvider value= {{Global: Data}} >
     <HeaderProvider>
+    <TransactionProvider>  
     <BrowserRouter>
       <div className="App">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -71,6 +73,7 @@ function App() {
 
         </div>
     </BrowserRouter>
+    </TransactionProvider>
     </HeaderProvider>
     </GlobalProvider>
     
