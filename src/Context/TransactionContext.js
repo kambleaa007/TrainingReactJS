@@ -11,7 +11,14 @@ let initialState = {
     due_date: "10/10/1970",
     type: "NONE",
     transactions : [
-        {}
+        {
+            id: "0",
+            status: "PENDING",
+            payee_name: "abcd",
+            amount: 1000.00,
+            due_date: "10/10/2020",
+            type: "DEBITED"
+        }
     ],
     contacts: [
         {

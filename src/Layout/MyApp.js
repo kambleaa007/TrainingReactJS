@@ -20,6 +20,8 @@ import Toast from 'react-bootstrap/Toast'
 import ToastHeader from 'react-bootstrap/ToastHeader';
 import ToastBody from 'react-bootstrap/ToastBody';
 
+import Table from 'react-bootstrap/Table'
+
 //Adding antd modules and style
 import { Button as Button1, Modal, Form, Input, Radio } from 'antd';
 import "antd/dist/antd.css";
@@ -129,6 +131,11 @@ function MyAppComponent(props) {
 
                     </div>
 
+{/* 
+<Check /> here
+
+*/}
+
                     <Check />
 
 
@@ -150,19 +157,57 @@ function Check(props) {
   let status = () => 
       dispatch({ 
         type: "ADD_CONTACT",
-        payload: { name: "newName", email: "newEmail" } 
+        payload: { id: Math.floor(Math.random() * 100), name: "newName", email: "newEmail" } 
       });
+
+  let addTransaction = () => dispatch({
+    type: "add-transaction",
+    payload: {
+      id:"0", status:"PENDING", payee_name:"abcd", amount:1000.00, due_date:"10/10/2020", type:"DEBITED" }
+  });    
 
   return(
 
   <div>
-      <button onClick={status}>status</button>
+      <button onClick={status}>Add New Dummy User</button>
+      {/* 
+      
       <p>contacts length is: {state.contacts.length}</p>   
       <h3>
         contacts name is {state.contacts.map(c=>c.name)}
-      </h3> 
+      </h3>  
+      
+      */}
+      <UserTable user={state.contacts}/>
   </div> 
 
+  )
+}
+
+const UserTable = (props) => {
+
+
+  return(
+    <Table striped bordered hover>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        props.user.map(u =>
+          <tr key={Math.random()}>
+            <td>{u.id}</td>
+            <td>{u.name}</td>
+            <td>{u.email}</td>
+          </tr>
+      )
+      }
+    </tbody>
+  </Table>
   )
 }
 
