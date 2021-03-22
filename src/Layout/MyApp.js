@@ -21,6 +21,7 @@ import ToastHeader from 'react-bootstrap/ToastHeader';
 import ToastBody from 'react-bootstrap/ToastBody';
 
 import Table from 'react-bootstrap/Table'
+// import Form from 'react-bootstrap/Form'
 
 //Adding antd modules and style
 import { Button as Button1, Modal, Form, Input, Radio } from 'antd';
@@ -177,6 +178,7 @@ function Check(props) {
       </h3>  
       
       */}
+      <AddNewUser />
       <UserTable user={state.contacts}/>
   </div> 
 
@@ -208,6 +210,70 @@ const UserTable = (props) => {
     </tbody>
   </Table>
   )
+}
+
+
+function AddNewUser (props) {
+
+  const formRef = React.createRef();
+
+  let { state, dispatch } = useContext(TransactionContext);
+
+  let addContact = (values) => 
+    dispatch({ 
+      type: "ADD_CONTACT",
+      payload: { id: Math.floor(Math.random() * 100), name: values.Name, email: values.Email } 
+    });
+
+  var onFinish = values => {
+    // console.log(values);
+    addContact(values)
+  };
+  var onReset = () => {
+    formRef.current.resetFields();
+  };
+
+  return(
+      <div>
+        <Form
+        ref={formRef}
+        name="control-ref"
+        onFinish={onFinish}
+      >
+        <Form.Item
+          name="Name"
+          label="Name"
+          rules={[
+            {
+              required: true
+            }
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="Email"
+          label="Email"
+          rules={[
+            {
+              required: true
+            }
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item>
+          <Button1 type="primary" htmlType="submit">
+            Submit
+          </Button1>
+          <Button1 htmlType="button" onClick={onReset}>
+            Reset
+          </Button1>
+        </Form.Item>
+      </Form>
+      </div>
+  )
+
 }
 
 
