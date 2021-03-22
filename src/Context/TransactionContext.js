@@ -36,7 +36,40 @@ let initialState = {
           name: "Clark Kent",
           email: "clark@metropolitan.com"
         }
-      ]
+      ],
+      Accounts: [
+        {
+            id: "1",
+            name: "1111",
+            balance: 10000,
+            type: "CURRENT",
+            linked_accounts: [
+                "1234",
+                "1478",
+                "1598"
+            ],
+            transactions: [
+                {
+                    id: "0",
+                    status: "PENDING",
+                    payee_name: "abcd",
+                    amount: 1000.00,
+                    due_date: "10/10/2020",
+                    type: "DEBITED"
+
+                },
+                {
+                    id: "0",
+                    status: "PENDING",
+                    payee_name: "abcd",
+                    amount: 1000.00,
+                    due_date: "10/10/2020",
+                    type: "DEBITED"
+
+                }
+            ]
+        }
+    ]
 }
 
 let reducer = (state, action) => {
@@ -64,6 +97,17 @@ let reducer = (state, action) => {
             return {
                 contacts: [...state.contacts, action.payload]
             };    
+
+        case "add-account-transaction":
+            const Arr = [...state.Accounts];
+            const ID = action.payload.accountID;
+            const Acc = Arr.find(a => a.id == ID);
+            Acc.transactions.push(action.payload.transaction)
+            //console.log(action.payload.transaction);
+            //console.log(Acc);
+            return {
+                ...state, Accounts: Arr
+            };     
     }
 };
 

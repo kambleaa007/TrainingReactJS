@@ -5,7 +5,8 @@ import { TransactionContext } from "../Context/TransactionContext";
 
 const AccountContext = React.createContext();
 
-let { state, dispatch } = useContext(TransactionContext);
+let { transactionstate, transactiondispatch } = useContext(TransactionContext);
+
 
 
 let initialState = {
@@ -32,7 +33,7 @@ let initialState = {
                 }
             ]
         }
-
+    ]
 }
 
 let reducer = (state, action) => {
@@ -40,15 +41,20 @@ let reducer = (state, action) => {
     switch(action.type) {
         case "reset":
             return initialState;
-        case "add-transaction":
-            const newArr = [...state.transactions];
-            // const newArr = [...state.transactions, action.payload];
+        case "add-account":
+            const newArr = [...state.Accounts];
+            // const newArr = [...state.Accounts, action.payload];
             newArr.push(action.payload);
-            return { ...state, transactions: newArr};      
+            return { ...state, Accounts: newArr};      
         
-        case "ADD_CONTACT":
+        case "add-account-transaction":
+            const newArr = [...state.Accounts];
+            const ID = action.payload.accountID;
+            const Acc = newArr.find(a => a.id == ID);
+            Acc.transactions.push(action.payload.transaction)
+            
             return {
-                contacts: [...state.contacts, action.payload]
+                ...state, Accounts: newArr
             };    
     }
 };

@@ -164,12 +164,23 @@ function Check(props) {
   let addTransaction = () => transactiondispatch({
     type: "add-transaction",
     payload: { id:"0", status:"PENDING", payee_name:"abcd", amount:1000.00, due_date:"10/10/2020", type:"DEBITED" }
-  });    
+  });  
+  
+  let addAccTransaction = () => transactiondispatch({
+    type: "add-account-transaction",
+    payload: {
+      accountID: "1",
+      transaction: { id:"0", status:"PENDING", payee_name:"abcd", amount:1000.00, due_date:"10/10/2020", type:"DEBITED" }
+    }
+  })
 
   return(
 
   <div>
       <button onClick={addTransaction}>Add New Dummy Transactions</button>
+      <button onClick={addAccTransaction}>Add New Dummy Acc Transactions</button>
+      <p>Accounts.length: {transactionstate.Accounts.map(t=>t.transactions.length)}</p>
+       
       <p>{transactionstate.transactions.map(t=>
         <div>
           amount is {t.amount} <br/>
