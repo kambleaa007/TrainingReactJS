@@ -171,8 +171,10 @@ function Check(props) {
   <div>
       <button onClick={addTransaction}>Add New Dummy Transactions</button>
       <p>{transactionstate.transactions.map(t=>
-        t.amount 
-        
+        <div>
+          amount is {t.amount} <br/>
+          payee_name is {t.payee_name}
+        </div>         
         )}</p>
         <div>
         length: {transactionstate.transactions.length}
