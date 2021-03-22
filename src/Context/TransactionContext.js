@@ -88,10 +88,10 @@ let reducer = (state, action) => {
         case "set-type":
             return { ...state, type: action.payload }; 
         case "add-transaction":
-            const newArr = [...state.transactions];
+            const newTransationArr = [...state.transactions];
             // const newArr = [...state.transactions, action.payload];
-            newArr.push(action.payload);
-            return { ...state, transactions: newArr};      
+            newTransationArr.push(action.payload);
+            return { ...state, transactions: newTransationArr};      
         
         case "ADD_CONTACT":
             return {
@@ -102,7 +102,9 @@ let reducer = (state, action) => {
             const Arr = [...state.Accounts];
             const ID = action.payload.accountID;
             const Acc = Arr.find(a => a.id == ID);
-            Acc.transactions.push(action.payload.transaction)
+            if (Acc != null){
+                Acc.transactions.push(action.payload.transaction)
+            }
             //console.log(action.payload.transaction);
             //console.log(Acc);
             return {
