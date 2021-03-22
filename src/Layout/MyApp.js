@@ -162,8 +162,7 @@ function Check(props) {
 
   let addTransaction = () => dispatch({
     type: "add-transaction",
-    payload: {
-      id:"0", status:"PENDING", payee_name:"abcd", amount:1000.00, due_date:"10/10/2020", type:"DEBITED" }
+    payload: { id:"0", status:"PENDING", payee_name:"abcd", amount:1000.00, due_date:"10/10/2020", type:"DEBITED" }
   });    
 
   return(
