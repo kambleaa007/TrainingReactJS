@@ -69,8 +69,8 @@ let reducer = (state, action) => {
 
 function TransactionProvider(props) {
     
-    let [state, dispatch] = React.useReducer( reducer, initialState );
-    let value = { state, dispatch };
+    let [transactionstate, transactiondispatch] = React.useReducer( reducer, initialState );
+    let value = { transactionstate, transactiondispatch };
 
     return (
         <TransactionContext.Provider value= {value}> { props.children } </TransactionContext.Provider>

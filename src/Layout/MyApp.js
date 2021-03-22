@@ -153,15 +153,15 @@ function MyAppComponent(props) {
 function Check(props) {
 
 
-  let { state, dispatch } = useContext(TransactionContext);
+  let { transactionstate, transactiondispatch } = useContext(TransactionContext);
 
   let status = () => 
-      dispatch({ 
+  transactiondispatch({ 
         type: "ADD_CONTACT",
         payload: { id: Math.floor(Math.random() * 100), name: "newName", email: "newEmail" } 
       });
 
-  let addTransaction = () => dispatch({
+  let addTransaction = () => transactiondispatch({
     type: "add-transaction",
     payload: { id:"0", status:"PENDING", payee_name:"abcd", amount:1000.00, due_date:"10/10/2020", type:"DEBITED" }
   });    
@@ -169,7 +169,14 @@ function Check(props) {
   return(
 
   <div>
-      <button onClick={status}>Add New Dummy User</button>
+      <button onClick={addTransaction}>Add New Dummy Transactions</button>
+      <p>{transactionstate.transactions.map(t=>
+        t.amount 
+        
+        )}</p>
+        <div>
+        length: {transactionstate.transactions.length}
+        </div>
       {/* 
       
       <p>contacts length is: {state.contacts.length}</p>   
@@ -179,7 +186,7 @@ function Check(props) {
       
       */}
       <AddNewUser />
-      <UserTable user={state.contacts}/>
+      <UserTable user={transactionstate.contacts}/>
   </div> 
 
   )
@@ -217,10 +224,10 @@ function AddNewUser (props) {
 
   const formRef = React.createRef();
 
-  let { state, dispatch } = useContext(TransactionContext);
+  let { transactionstate, transactiondispatch } = useContext(TransactionContext);
 
   let addContact = (values) => 
-    dispatch({ 
+  transactiondispatch({ 
       type: "ADD_CONTACT",
       payload: { id: Math.floor(Math.random() * 100), name: values.Name, email: values.Email } 
     });
@@ -233,9 +240,25 @@ function AddNewUser (props) {
     formRef.current.resetFields();
   };
 
+  const layout = {
+    labelCol: {
+      span: 8
+    },
+    wrapperCol: {
+      span: 16
+    }
+  };
+  const tailLayout = {
+    wrapperCol: {
+      offset: 8,
+      span: 16
+    }
+  };
+
+
   return(
       <div>
-        <Form
+        <Form {...layout}
         ref={formRef}
         name="control-ref"
         onFinish={onFinish}
@@ -245,7 +268,8 @@ function AddNewUser (props) {
           label="Name"
           rules={[
             {
-              required: true
+              required: true,
+              message: 'Please input your Name!'
             }
           ]}
         >
@@ -256,13 +280,14 @@ function AddNewUser (props) {
           label="Email"
           rules={[
             {
-              required: true
+              required: true,
+              message: 'Please input your Email!',
             }
           ]}
         >
           <Input />
         </Form.Item>
-        <Form.Item>
+        <Form.Item {...tailLayout}>
           <Button1 type="primary" htmlType="submit">
             Submit
           </Button1>
