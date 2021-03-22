@@ -100,10 +100,10 @@ let reducer = (state, action) => {
 
         case "add-account-transaction":
             const Arr = [...state.Accounts];
-            const ID = action.payload.accountID;
+            const ID = action.payload.accountID; // passing ID from MyApp.js
             const Acc = Arr.find(a => a.id == ID);
             if (Acc != null){
-                Acc.transactions.push(action.payload.transaction)
+                Acc.transactions.push(action.payload.transaction) // passing transaction from MyApp.js
             }
             //console.log(action.payload.transaction);
             //console.log(Acc);
