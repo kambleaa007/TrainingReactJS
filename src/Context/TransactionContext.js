@@ -109,7 +109,15 @@ let reducer = (state, action) => {
             //console.log(Acc);
             return {
                 ...state, Accounts: Arr
-            };     
+            };
+            
+        case "add-account":
+            const AccArr = [...state.Accounts];
+            AccArr.push(action.payload);
+            
+            return {
+                ...state, Accounts: AccArr
+            }
     }
 };
 

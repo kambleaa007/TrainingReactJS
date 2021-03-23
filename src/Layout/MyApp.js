@@ -28,7 +28,8 @@ import { Button as Button1, Modal, Form, Input, Radio } from 'antd';
 import "antd/dist/antd.css";
 
 import { TransactionContext } from "../Context/TransactionContext";
-
+import { useHistory } from "react-router-dom";
+import { BrowserRouter, Route, Switch, useRouteMatch } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -133,11 +134,11 @@ function MyAppComponent(props) {
                     </div>
 
 {/* 
-<Check /> here
+<TransactionCheck /> here
 
 */}
 
-                    <Check />
+                    
 
 
                     
@@ -150,10 +151,12 @@ function MyAppComponent(props) {
 
 
 
-function Check(props) {
+function TransactionCheck(props) {
 
 
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
+  const history = useHistory();
+  let { path, url } = useRouteMatch();
 
   let status = () => 
   transactiondispatch({ 
@@ -182,14 +185,34 @@ function Check(props) {
       <p>Accounts.length: {transactionstate.Accounts.map(t=>t.transactions.length)}</p>
        
       <p>{transactionstate.transactions.map(t=>
-        <div>
-          amount is {t.amount} <br/>
-          payee_name is {t.payee_name}
-        </div>         
-        )}</p>
-        <div>
-        length: {transactionstate.transactions.length}
-        </div>
+      <div>
+        amount is {t.amount} <br/>
+        payee_name is {t.payee_name}
+      </div>         
+      )}</p>
+      <div>
+      length: {transactionstate.transactions.length}
+      </div>
+
+
+
+      <button onClick={()=>{history.push(`${url}/addNewAccount`)}}>Add New Account</button>
+      <button onClick={()=>{history.push(`${url}/userTable`)}}>User Table</button>
+      <div>
+        <Switch>
+          <Route exact path={path}>
+          </Route>
+          <Route path={`${path}/addNewAccount`}>
+            <div>
+              <AddNewUser />      
+            </div>
+          </Route>
+          <Route path={`${path}/userTable`}>
+            <TransactionUserTable user={transactionstate.contacts}/>
+          </Route>
+        </Switch>
+      </div>
+
       {/* 
       
       <p>contacts length is: {state.contacts.length}</p>   
@@ -198,14 +221,14 @@ function Check(props) {
       </h3>  
       
       */}
-      <AddNewUser />
-      <UserTable user={transactionstate.contacts}/>
+      
+      
   </div> 
 
   )
 }
 
-const UserTable = (props) => {
+const TransactionUserTable = (props) => {
 
 
   return(
@@ -239,11 +262,17 @@ function AddNewUser (props) {
 
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
 
+
   let addContact = (values) => 
   transactiondispatch({ 
       type: "ADD_CONTACT",
       payload: { id: Math.floor(Math.random() * 100), name: values.Name, email: values.Email } 
     });
+
+    let addAccount = (values) => transactiondispatch({
+      type: "add-account", 
+      payload: {  id: Math.floor(Math.random() * 100),  name: values.Name,  balance: 0, type: values.type, linked_accounts: [], transactions: [] }
+    })
 
   var onFinish = values => {
     // console.log(values);
@@ -326,7 +355,7 @@ function MyAppBody (props) {
                 <div className="col-md-1"></div>
                 <div className="col-md-10">
                     {/* <Chatting /> Adding chat only after login sucess  */} 
-                    <Login />
+                    {/* <Login /> */}
                 </div>
                 <div className="col-md-1"></div>
             </div>
@@ -339,20 +368,37 @@ function MyAppBody (props) {
 const NavBar = () => {
 
     const classes = useStyles();
+    const history = useHistory();
+    let { path, url } = useRouteMatch();
 
     return(
-        <AppBar position="static">
-            <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-                News
-            </Typography>
-            <Button color="inherit">Login</Button>
-            <Button color="inherit">Sign Up</Button>
-            </Toolbar>
-        </AppBar>
+        <div>
+          <AppBar position="static">
+              <Toolbar>
+              <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                  <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                  News
+              </Typography>
+              <Button color="inherit" onClick={()=>{history.push(`${url}/myAccount`)}}>My Account</Button>
+              <Button color="inherit" onClick={()=>{history.push(`${url}/login`)}}>Login</Button>
+              <Button color="inherit">Sign Up</Button>
+              </Toolbar>
+          </AppBar>
+          <Switch>
+            <Route exact path={path}>
+            </Route>
+            <Route path={`${path}/myAccount`}>
+              <div>TOPIC
+              <TransactionCheck />
+              </div>
+            </Route>
+            <Route path={`${path}/login`}>
+              <Login />
+            </Route>
+          </Switch>
+        </div>
     )
 };
 

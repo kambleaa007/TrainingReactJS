@@ -54,7 +54,8 @@ function App() {
             <Switch>
               <Route path="/" exact component= { (props) => ( <HomeComponent  /> )} />
               <Route path="/myApp" component={(props) => ( <MyAppComponent   /> )} />
-            
+                      {/* <Route path="/myApp/myAccount" exact component= { (props) => ( <div>myAccount page</div> )} /> */}
+
             
               <Route path="/sendMoney" component={ (props) => ( <SendMoney   /> )} />
               <Route path="/transferMoney" component={(props) => ( <TransferMoney   /> )} />
@@ -66,7 +67,7 @@ function App() {
               <Route path="/futureDatedPayments" component={(props) => ( <FutureDatedPayment   /> )} />
               <Route path="/managePayees" component={(props) => ( <ManagePayee   /> )} />
             
-
+              
               
             </Switch>
             <Footer></Footer>
