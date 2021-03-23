@@ -24,8 +24,9 @@ import Table from 'react-bootstrap/Table'
 // import Form from 'react-bootstrap/Form'
 
 //Adding antd modules and style
-import { Button as Button1, Modal, Form, Input, Radio } from 'antd';
+import { Button as Button1, Modal, Form, Input, Radio, Dropdown, Menu, Select } from 'antd';
 import "antd/dist/antd.css";
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
 import { TransactionContext } from "../Context/TransactionContext";
 import { useHistory } from "react-router-dom";
@@ -164,43 +165,58 @@ function TransactionCheck(props) {
         payload: { id: Math.floor(Math.random() * 100), name: "newName", email: "newEmail" } 
       });
 
-  let addTransaction = () => transactiondispatch({
-    type: "add-transaction",
-    payload: { id:"0", status:"PENDING", payee_name:"abcd", amount:1000.00, due_date:"10/10/2020", type:"DEBITED" }
-  });  
-  
-  let addAccTransaction = () => transactiondispatch({
-    type: "add-account-transaction",
-    payload: {
-      accountID: "1",
-      transaction: { id:"0", status:"PENDING", payee_name:"abcd", amount:1000.00, due_date:"10/10/2020", type:"DEBITED" }
-    }
-  })
+
+
+  const Testing = () => {
+
+    let addTransaction = () => transactiondispatch({
+      type: "add-transaction",
+      payload: { id:"0", status:"PENDING", payee_name:"abcd", amount:1000.00, due_date:"10/10/2020", type:"DEBITED" }
+    });  
+    
+    let addAccTransaction = () => transactiondispatch({
+      type: "add-account-transaction",
+      payload: {
+        accountID: "1",
+        transaction: { id:"0", status:"PENDING", payee_name:"abcd", amount:1000.00, due_date:"10/10/2020", type:"DEBITED" }
+      }
+    })
+
+
+    return(
+      <div>
+        <button onClick={addTransaction}>Add New Dummy Transactions</button>
+        <button onClick={addAccTransaction}>Add New Dummy Acc Transactions</button>
+        <p>Accounts.length: {transactionstate.Accounts.map(t=>t.transactions.length)}</p>
+          
+        <p>{transactionstate.transactions.map(t=>
+        <div>
+          amount is {t.amount} <br/>
+          payee_name is {t.payee_name}
+        </div>         
+        )}</p>
+        <div>
+        length: {transactionstate.transactions.length}
+        </div>
+      </div>
+    )
+  }
 
   return(
 
   <div>
-      <button onClick={addTransaction}>Add New Dummy Transactions</button>
-      <button onClick={addAccTransaction}>Add New Dummy Acc Transactions</button>
-      <p>Accounts.length: {transactionstate.Accounts.map(t=>t.transactions.length)}</p>
-       
-      <p>{transactionstate.transactions.map(t=>
-      <div>
-        amount is {t.amount} <br/>
-        payee_name is {t.payee_name}
-      </div>         
-      )}</p>
-      <div>
-      length: {transactionstate.transactions.length}
-      </div>
-
-
-
+      <button onClick={()=>{history.push(`${url}/testing`)}}>Testing</button>
+      
       <button onClick={()=>{history.push(`${url}/addNewAccount`)}}>Add New Account</button>
       <button onClick={()=>{history.push(`${url}/userTable`)}}>User Table</button>
       <div>
         <Switch>
           <Route exact path={path}>
+          </Route>
+          <Route path={`${path}/testing`}>
+            <div>
+              <Testing />      
+            </div>
           </Route>
           <Route path={`${path}/addNewAccount`}>
             <div>
@@ -238,6 +254,7 @@ const TransactionUserTable = (props) => {
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
+        <th>Account Type</th>
       </tr>
     </thead>
     <tbody>
@@ -247,6 +264,7 @@ const TransactionUserTable = (props) => {
             <td>{u.id}</td>
             <td>{u.name}</td>
             <td>{u.email}</td>
+            <td>{u.accounttype}</td>
           </tr>
       )
       }
@@ -261,12 +279,12 @@ function AddNewUser (props) {
   const formRef = React.createRef();
 
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
+  const { Option } = Select;
 
 
-  let addContact = (values) => 
-  transactiondispatch({ 
+  let addContact = (values) => transactiondispatch({ 
       type: "ADD_CONTACT",
-      payload: { id: Math.floor(Math.random() * 100), name: values.Name, email: values.Email } 
+      payload: { id: Math.floor(Math.random() * 100), name: values.Name, email: values.Email, accounttype: values.accounttype } 
     });
 
     let addAccount = (values) => transactiondispatch({
@@ -296,7 +314,9 @@ function AddNewUser (props) {
       span: 16
     }
   };
-
+  const onAccountTypeChange = (value) => {
+    //console.log("Account type selected is "+ value);
+  }
 
   return(
       <div>
@@ -327,7 +347,21 @@ function AddNewUser (props) {
             }
           ]}
         >
+        
           <Input />
+        </Form.Item>
+        <Form.Item
+          name="accounttype" label="Account Type" rules={[{ required: true,},]}
+        >
+          <Select
+            placeholder="Select Your Account Type"
+            onChange={onAccountTypeChange}
+            allowClear
+          >
+            <Option value="CURRENT">CURRENT</Option>
+            <Option value="SAVING">SAVING</Option>
+            <Option value="SALARY">SALARY</Option>
+          </Select>
         </Form.Item>
         <Form.Item {...tailLayout}>
           <Button1 type="primary" htmlType="submit">
@@ -336,6 +370,7 @@ function AddNewUser (props) {
           <Button1 htmlType="button" onClick={onReset}>
             Reset
           </Button1>
+
         </Form.Item>
       </Form>
       </div>
@@ -356,6 +391,7 @@ function MyAppBody (props) {
                 <div className="col-md-10">
                     {/* <Chatting /> Adding chat only after login sucess  */} 
                     {/* <Login /> */}
+                    <NavBody />
                 </div>
                 <div className="col-md-1"></div>
             </div>
@@ -386,21 +422,33 @@ const NavBar = () => {
               <Button color="inherit">Sign Up</Button>
               </Toolbar>
           </AppBar>
-          <Switch>
-            <Route exact path={path}>
-            </Route>
-            <Route path={`${path}/myAccount`}>
-              <div>TOPIC
-              <TransactionCheck />
-              </div>
-            </Route>
-            <Route path={`${path}/login`}>
-              <Login />
-            </Route>
-          </Switch>
         </div>
     )
 };
+
+const NavBody = () => {
+
+  const history = useHistory();
+  let { path, url } = useRouteMatch();
+
+  return(
+    <div>
+      <Switch>
+        <Route exact path={path}>
+        </Route>
+        <Route path={`${path}/myAccount`}>
+          <div>
+          <TransactionCheck />
+          </div>
+        </Route>
+        <Route path={`${path}/login`}>
+          <Login />
+        </Route>
+      </Switch>
+    </div>
+  )
+
+}
 
 const Chatting = () => {
 

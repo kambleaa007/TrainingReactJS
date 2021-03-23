@@ -24,17 +24,20 @@ let initialState = {
         {
           id: "098",
           name: "Diana Prince",
-          email: "diana@us.army.mil"
+          email: "diana@us.army.mil",
+          accounttype: "CURRENT"
         },
         {
           id: "099",
           name: "Bruce Wayne",
-          email: "bruce@batmail.com"
+          email: "bruce@batmail.com",
+          accounttype: "CURRENT"
         },
         {
           id: "100",
           name: "Clark Kent",
-          email: "clark@metropolitan.com"
+          email: "clark@metropolitan.com",
+          accounttype: "CURRENT"
         }
       ],
       Accounts: [
@@ -114,7 +117,7 @@ let reducer = (state, action) => {
         case "add-account":
             const AccArr = [...state.Accounts];
             AccArr.push(action.payload);
-            
+
             return {
                 ...state, Accounts: AccArr
             }
