@@ -16,7 +16,7 @@ const Header = (props) => {
             {
                 props.isBack ? <button className="GoBack" onClick={() => history.goBack()}><i className='go-back-logo'></i></button> : null
             }
-                <div className="HeaderName">{props.name}</div>
+                <div className="HeaderName" onClick={() => history.push("/myAppLayout")}>{props.name}</div>
                 <button className="HeaderUser" onClick={() => history.push("/myApp")}><i className='header-user-logo'></i></button>
             </div>
         </div>

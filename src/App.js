@@ -55,7 +55,7 @@ function App() {
               <Route path="/" exact component= { (props) => ( <HomeComponent  /> )} />
               <Route path="/myApp" component={(props) => ( <MyAppComponent   /> )} />
                       {/* <Route path="/myApp/myAccount" exact component= { (props) => ( <div>myAccount page</div> )} /> */}
-
+              <Route path="/myAppLayout" component={(props) => ( <div>myAppLayout</div> )} />
             
               <Route path="/sendMoney" component={ (props) => ( <SendMoney   /> )} />
               <Route path="/transferMoney" component={(props) => ( <TransferMoney   /> )} />
@@ -70,7 +70,8 @@ function App() {
               
               
             </Switch>
-            <Footer></Footer>
+            
+            <Footer />
 
         </div>
     </BrowserRouter>
