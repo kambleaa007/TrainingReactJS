@@ -35,7 +35,7 @@ function MyAppLayout(){
 
     return(
         <Layout style={{ minHeight: '100vh' }} >
-            <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+            <Sider collapsible collapsed={collapsed} onCollapse={onCollapse} className={theme==='dark'? "ant-layout-sider-dark": "ant-layout-sider-light"}>
             <div className="logo" />
             <Switch1
                 checked = { theme === "dark" }
