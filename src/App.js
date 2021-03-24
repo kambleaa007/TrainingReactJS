@@ -18,6 +18,8 @@ import DirectDebit from "./Component/DirectDebit/DirectDebit";
 import FutureDatedPayment from "./Component/FutureDatedPayment/FutureDatedPayment";
 import ManagePayee from "./Component/ManagePayee/ManagePayee";
 
+import MyAppLayout from "./Layout/MyAppLayout";
+
 import Footer from "./Common/Footer/Footer";
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -55,7 +57,7 @@ function App() {
               <Route path="/" exact component= { (props) => ( <HomeComponent  /> )} />
               <Route path="/myApp" component={(props) => ( <MyAppComponent   /> )} />
                       {/* <Route path="/myApp/myAccount" exact component= { (props) => ( <div>myAccount page</div> )} /> */}
-              <Route path="/myAppLayout" component={(props) => ( <div>myAppLayout</div> )} />
+              <Route path="/myAppLayout" component={(props) => ( <MyAppLayout /> )} />
             
               <Route path="/sendMoney" component={ (props) => ( <SendMoney   /> )} />
               <Route path="/transferMoney" component={(props) => ( <TransferMoney   /> )} />
