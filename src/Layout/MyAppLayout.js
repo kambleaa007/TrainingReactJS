@@ -3,20 +3,20 @@ import { BrowserRouter, Route, Switch, useHistory, useRouteMatch } from 'react-r
 
 
 import { Layout, Menu, Breadcrumb, Switch as Switch1 } from 'antd';
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { DesktopOutlined, PieChartOutlined, FileOutlined, TeamOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons';
 
 import "./MyAppLayout.css";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
+var siderLayoutArray = [
+    "option1", "option2", "user", "team", "files"
+]
 
+var siderJson = {
+    option1: "Option 1", option2: "Option 2"
+}
 
 function MyAppLayout(){
 
@@ -41,10 +41,12 @@ function MyAppLayout(){
             <br />
             <br />
             <Menu theme = {theme} defaultSelectedKeys={['1']} mode="inline">
-                <Menu.Item key="1" icon={<PieChartOutlined />} onClick={()=>{history.push(`${url}/option1`)}}>
-                Option 1
+                <Menu.Item key="1" icon={<PieChartOutlined />} onClick={()=>{history.push(`${url}/`+siderLayoutArray[0])}}>                    
+                {/* <Menu.Item key="1" icon={<DesktopOutlined />} onClick={()=>{history.push(`${url}/option1`)}}></Menu.Item> */}
+                {siderJson[siderLayoutArray[0]]}
                 </Menu.Item>
-                <Menu.Item key="2" icon={<DesktopOutlined />} onClick={()=>{history.push(`${url}/option2`)}}>
+                {/* <Menu.Item key="2" icon={<DesktopOutlined />} onClick={()=>{history.push(`${url}/option2`)}}> */}
+                <Menu.Item key="2" icon={<DesktopOutlined />} onClick={()=>{history.push(`${url}/`+siderLayoutArray[1])}}>
                 Option 2
                 </Menu.Item>
                 <SubMenu key="sub1" icon={<UserOutlined /> } title="User" >
@@ -65,8 +67,14 @@ function MyAppLayout(){
             <Header className="site-layout-background" style={{ padding: 0 }} />
             <Content style={{ margin: '0 16px' }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>User</Breadcrumb.Item>
-                <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                <Breadcrumb.Item href="/">
+                    <HomeOutlined />
+                </Breadcrumb.Item>
+                
+                <Breadcrumb.Item><a href="/myAppLayout">MyAppLayout</a></Breadcrumb.Item> 
+                <Breadcrumb.Item><a href="/myAppLayout/user">User</a></Breadcrumb.Item> 
+                <Breadcrumb.Item><a href="/myAppLayout/user/bill">Bill</a></Breadcrumb.Item>
+                <Breadcrumb.Item><a href="/myAppLayout/option1">Option1</a></Breadcrumb.Item>
                 </Breadcrumb>
                 <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                 <Switch>
@@ -74,12 +82,12 @@ function MyAppLayout(){
                     </Route>
                     <Route path={`${path}/option1`}>
                         <div>
-                        Option1      
+                        Option1    {console.log(history.location.pathname)}
                         </div>
                     </Route>
                     <Route path={`${path}/option2`}>
                         <div>
-                        Option2      
+                        Option2      {console.log(history.location.pathname)}
                         </div>
                     </Route>
                     <Route path={`${path}/user`}>
