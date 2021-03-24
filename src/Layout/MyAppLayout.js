@@ -41,9 +41,11 @@ function MyAppLayout(){
             <br />
             <br />
             <Menu theme = {theme} defaultSelectedKeys={['1']} mode="inline">
-                <Menu.Item key="1" icon={<PieChartOutlined />} onClick={()=>{history.push(`${url}/`+siderLayoutArray[0])}}>                    
-                {/* <Menu.Item key="1" icon={<DesktopOutlined />} onClick={()=>{history.push(`${url}/option1`)}}></Menu.Item> */}
-                {siderJson[siderLayoutArray[0]]}
+                
+                <Menu.Item key="1" icon={<DesktopOutlined />} onClick={()=>{history.push(`${url}/option1`)}}>                  
+                {/* <Menu.Item key="1" icon={<PieChartOutlined />} onClick={()=>{history.push(`${url}/`+siderLayoutArray[0])}}>  */}
+                {/* {siderJson[siderLayoutArray[0]]} */}
+                Option 1
                 </Menu.Item>
                 {/* <Menu.Item key="2" icon={<DesktopOutlined />} onClick={()=>{history.push(`${url}/option2`)}}> */}
                 <Menu.Item key="2" icon={<DesktopOutlined />} onClick={()=>{history.push(`${url}/`+siderLayoutArray[1])}}>
