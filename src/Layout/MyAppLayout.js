@@ -81,7 +81,7 @@ function MyAppLayout(){
                     <Breadcrumb.Item><a href="/myAppLayout">MyAppLayout</a></Breadcrumb.Item> 
                     {                        
                         location.includes("user") ? 
-                            <Breadcrumb.Item><a href="/myAppLayout/user">User</a></Breadcrumb.Item>  : null                                
+                            <Breadcrumb.Item><a onClick={()=>history.go("/myAppLayout/user")}>User</a></Breadcrumb.Item>  : null                                
                     }
                     {
                         location.includes("tom") ? 
