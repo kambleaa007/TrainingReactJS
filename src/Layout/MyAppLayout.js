@@ -33,6 +33,11 @@ function MyAppLayout(){
         value ? setTheme('dark') : setTheme('light');
   };
 
+  const[location, setLocation] = useState("");
+  useEffect(
+    ()=>{setLocation(history.location.pathname)}, [history.location.pathname]
+  );
+
     return(
         <Layout style={{ minHeight: '100vh' }} >
             <Sider collapsible collapsed={collapsed} onCollapse={onCollapse} className={theme==='dark'? "ant-layout-sider-dark": "ant-layout-sider-light"}>
@@ -74,9 +79,31 @@ function MyAppLayout(){
                     </Breadcrumb.Item>
                     
                     <Breadcrumb.Item><a href="/myAppLayout">MyAppLayout</a></Breadcrumb.Item> 
-                    <Breadcrumb.Item><a href="/myAppLayout/user">User</a></Breadcrumb.Item> 
-                    <Breadcrumb.Item><a href="/myAppLayout/user/bill">Bill</a></Breadcrumb.Item>
-                    <Breadcrumb.Item><a href="/myAppLayout/option1">Option1</a></Breadcrumb.Item>
+                    {                        
+                        location.includes("user") ? 
+                            <Breadcrumb.Item><a href="/myAppLayout/user">User</a></Breadcrumb.Item>  : null                                
+                    }
+                    {
+                        location.includes("tom") ? 
+                            <Breadcrumb.Item><a href="/myAppLayout/user/tom">Tom</a></Breadcrumb.Item>  : null
+                    }
+                    {
+                        location.includes("alex") ? 
+                            <Breadcrumb.Item><a href="/myAppLayout/user/alex">Alex</a></Breadcrumb.Item>  : null
+                    }
+                    {
+                        location.includes("bill") ? 
+                            <Breadcrumb.Item><a href="/myAppLayout/user/bill">Bill</a></Breadcrumb.Item>  : null
+                    }
+                    {
+                        location.includes("option1") ? 
+                        <Breadcrumb.Item><a href="/myAppLayout/option1">Option1</a></Breadcrumb.Item>  : null
+                    }
+                    {
+                        location.includes("option2") ? 
+                        <Breadcrumb.Item><a href="/myAppLayout/option2">Option2</a></Breadcrumb.Item>  : null
+                    }
+                    
                 </Breadcrumb>
                 <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                 <Switch>
@@ -84,12 +111,12 @@ function MyAppLayout(){
                     </Route>
                     <Route path={`${path}/option1`}>
                         <div>
-                        Option1    {console.log(history.location.pathname)}
+                        Option1    
                         </div>
                     </Route>
                     <Route path={`${path}/option2`}>
                         <div>
-                        Option2      {console.log(history.location.pathname)}
+                        Option2    
                         </div>
                     </Route>
                     <Route path={`${path}/user`}>
