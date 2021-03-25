@@ -121,6 +121,8 @@ let reducer = (state, action) => {
             return {
                 ...state, Accounts: AccArr
             }
+
+            
     }
 };
 
