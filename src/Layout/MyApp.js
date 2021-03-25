@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -28,7 +28,7 @@ import { Button as Button1, Modal, Form, Input, Radio, Dropdown, Menu, Select } 
 import "antd/dist/antd.css";
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
-import { TransactionContext } from "../Context/TransactionContext";
+import { TransactionContext, getAccounts } from "../Context/TransactionContext";
 import { useHistory } from "react-router-dom";
 import { BrowserRouter, Route, Switch, useRouteMatch } from 'react-router-dom';
 
@@ -159,6 +159,14 @@ function TransactionCheck(props) {
   const history = useHistory();
   let { path, url } = useRouteMatch();
 
+
+  const getAccountData = async ()=> {
+    await getAccounts(transactiondispatch);
+  }
+
+
+
+
   let status = () => 
   transactiondispatch({ 
         type: "ADD_CONTACT",
@@ -185,9 +193,11 @@ function TransactionCheck(props) {
 
     return(
       <div>
+        <button onClick={getAccountData}>Call axios getAccountData</button>
         <button onClick={addTransaction}>Add New Dummy Transactions</button>
         <button onClick={addAccTransaction}>Add New Dummy Acc Transactions</button>
-        <p>Accounts.length: {transactionstate.Accounts.map(t=>t.transactions.length)}</p>
+        <p>Accounts.length: {transactionstate.Accounts.length}</p>
+        <p>Tranctions.length: {transactionstate.Accounts.map(t=>t.transactions.length)}</p>
           
         <p>{transactionstate.transactions.map(t=>
         <div>
@@ -209,6 +219,7 @@ function TransactionCheck(props) {
       
       <button onClick={()=>{history.push(`${url}/addNewAccount`)}}>Add New Account</button>
       <button onClick={()=>{history.push(`${url}/userTable`)}}>User Table</button>
+      <button onClick={()=>{history.push(`${url}/accountTable`)}}>Account Table</button>
       <div>
         <Switch>
           <Route exact path={path}>
@@ -225,6 +236,9 @@ function TransactionCheck(props) {
           </Route>
           <Route path={`${path}/userTable`}>
             <TransactionUserTable user={transactionstate.contacts}/>
+          </Route>
+          <Route path={`${path}/accountTable`}>
+            <TransactionAccountTable user={transactionstate.Accounts}/>
           </Route>
         </Switch>
       </div>
@@ -272,7 +286,58 @@ const TransactionUserTable = (props) => {
   </Table>
   )
 }
+const TransactionAccountTable = (props) => {
 
+
+  return(
+    <Table striped bordered hover>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Account Type</th>
+        <th>Transactions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        props.user.map(u =>
+          <tr key={Math.random()}>
+            <td>{u.id}</td>
+            <td>{u.name}</td>
+            <td>{u.balance}</td>
+            <td>{u.type}</td>
+            <td>
+              <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Amount</th>
+                  <th>Due date</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                {u.transactions.map(t => 
+                  <tr>
+                    <td>{t.status}</td>
+                    <td>{t.amount}</td>
+                    <td>{t.due_date}</td>
+                    <td>{t.type}</td>
+                  </tr>
+                  )
+                }
+                </tbody>
+                </Table>
+            </td>
+          </tr>
+      )
+      }
+    </tbody>
+  </Table>
+  )
+}
 
 function AddNewUser (props) {
 

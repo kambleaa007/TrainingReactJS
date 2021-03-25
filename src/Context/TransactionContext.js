@@ -147,7 +147,23 @@ function TransactionProvider(props) {
 export const getAccounts = async dispatch => {
 
 
-    await 
+        // get user info handler (HOW TO USE)
+        // const getUserInfoHandler = async () => {
+        //     await getUser(userDispatch);
+        //     setLoading(userDispatch, false);
+        // };
+
+
+    await axios
+            .get(`https://my-banking-json-server.herokuapp.com/Accounts`) 
+            .then(res => {
+                const result = res.data;
+                console.log(result);
+                dispatch({
+                    type: "SET-ACCOUNTS",
+                    payload: result   
+                })
+            })
 
 }
 
