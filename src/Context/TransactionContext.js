@@ -122,7 +122,10 @@ let reducer = (state, action) => {
                 ...state, Accounts: AccArr
             }
 
-            
+        case "SET-ACCOUNTS":
+            return {
+                ...state, Accounts: action.payload
+            }    
     }
 };
 
