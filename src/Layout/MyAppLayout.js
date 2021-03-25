@@ -57,16 +57,16 @@ function MyAppLayout(){
                     Option 2
                     </Menu.Item>
                     <SubMenu key="sub1" icon={<UserOutlined /> } title="User" >
-                    <Menu.Item key="3" onClick={()=>{history.push(`${url}/user/tom`)}}>Tom</Menu.Item>
-                    <Menu.Item key="4" onClick={()=>{history.push(`${url}/user/bill`)}}>Bill</Menu.Item>
-                    <Menu.Item key="5" onClick={()=>{history.push(`${url}/user/alex`)}}>Alex</Menu.Item>
+                        <Menu.Item key="3" onClick={()=>{history.push(`${url}/user/tom`)}}>Tom</Menu.Item>
+                        <Menu.Item key="4" onClick={()=>{history.push(`${url}/user/bill`)}}>Bill</Menu.Item>
+                        <Menu.Item key="5" onClick={()=>{history.push(`${url}/user/alex`)}}>Alex</Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-                    <Menu.Item key="6">Team 1</Menu.Item>
-                    <Menu.Item key="8">Team 2</Menu.Item>
+                        <Menu.Item key="6" onClick={()=>{history.push(`${url}/team/team1`)}}>Team 1</Menu.Item>
+                        <Menu.Item key="8" onClick={()=>{history.push(`${url}/team/team2`)}}>Team 2</Menu.Item>
                     </SubMenu>
-                    <Menu.Item key="9" icon={<FileOutlined />}>
-                    Files
+                    <Menu.Item key="9" icon={<FileOutlined />} onClick={()=>{history.push(`${url}/files`)}}>
+                    Files   
                     </Menu.Item>
                 </Menu>
             </Sider>
@@ -74,11 +74,13 @@ function MyAppLayout(){
             <Header className="site-layout-background" style={{ padding: 0 }} />
             <Content style={{ margin: '0 16px' }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
+
                     <Breadcrumb.Item href="/">
                         <HomeOutlined /> 
-                    </Breadcrumb.Item>
-                    
+                    </Breadcrumb.Item>                    
+
                     <Breadcrumb.Item><a href="/myAppLayout">MyAppLayout</a></Breadcrumb.Item> 
+
                     {                        
                         location.includes("user") ? 
                             <Breadcrumb.Item><a onClick={()=>history.go("/myAppLayout/user")}>User</a></Breadcrumb.Item>  : null                                
@@ -97,11 +99,27 @@ function MyAppLayout(){
                     }
                     {
                         location.includes("option1") ? 
-                        <Breadcrumb.Item><a href="/myAppLayout/option1">Option1</a></Breadcrumb.Item>  : null
+                            <Breadcrumb.Item><a href="/myAppLayout/option1">Option1</a></Breadcrumb.Item>  : null
                     }
                     {
                         location.includes("option2") ? 
-                        <Breadcrumb.Item><a href="/myAppLayout/option2">Option2</a></Breadcrumb.Item>  : null
+                            <Breadcrumb.Item><a href="/myAppLayout/option2">Option2</a></Breadcrumb.Item>  : null
+                    }
+                    {
+                        location.includes("team") ? 
+                            <Breadcrumb.Item><a href="/myAppLayout/team">Team</a></Breadcrumb.Item>  : null
+                    }
+                    {
+                        location.includes("team1") ? 
+                            <Breadcrumb.Item><a href="/myAppLayout/team/team1">Team1</a></Breadcrumb.Item>  : null
+                    }
+                    {
+                        location.includes("team2") ? 
+                            <Breadcrumb.Item><a href="/myAppLayout/team/team2">Team2</a></Breadcrumb.Item>  : null
+                    }
+                    {
+                        location.includes("files") ? 
+                            <Breadcrumb.Item><a href="/myAppLayout/files">Files</a></Breadcrumb.Item>  : null
                     }
                     
                 </Breadcrumb>
@@ -117,6 +135,11 @@ function MyAppLayout(){
                     <Route path={`${path}/option2`}>
                         <div>
                         Option2    
+                        </div>
+                    </Route>
+                    <Route path={`${path}/files`}>
+                        <div>
+                            Files    
                         </div>
                     </Route>
                     <Route path={`${path}/user`}>
@@ -138,6 +161,25 @@ function MyAppLayout(){
                                 <Route path={`${path}/user/alex`}>
                                     <div>
                                         Hello Alex
+                                    </div>
+                                </Route>
+                            </Switch>
+                        </div>
+                    </Route>
+                    <Route path={`${path}/team`}>
+                        <div>
+                            <h3>Option4 Teams</h3>
+                            <Switch>
+                                <Route exact path={path}>
+                                </Route>
+                                <Route path={`${path}/team/team1`}>
+                                    <div>
+                                        Hello Team1
+                                    </div>
+                                </Route>
+                                <Route path={`${path}/team/team2`}>
+                                    <div>
+                                        Hello Team2
                                     </div>
                                 </Route>
                             </Switch>
