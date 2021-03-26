@@ -123,7 +123,7 @@ let reducer = (state, action) => {
                 ...state, Accounts: AccArr
             }
 
-        case "SET-ACCOUNTS":
+        case "FETCH-ACCOUNTS":
             return {
                 ...state, Accounts: action.payload
             }    
@@ -160,7 +160,7 @@ export const getAccounts = async dispatch => {
                 const result = res.data;
                 console.log(result);
                 dispatch({
-                    type: "SET-ACCOUNTS",
+                    type: "FETCH-ACCOUNTS",
                     payload: result   
                 })
             })
