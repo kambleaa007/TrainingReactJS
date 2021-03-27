@@ -28,7 +28,7 @@ import { Button as Button1, Modal, Form, Input, Radio, Dropdown, Menu, Select } 
 import "antd/dist/antd.css";
 import { DownOutlined, UserOutlined, DeleteOutlined } from '@ant-design/icons';
 
-import { TransactionContext, getAccounts, setAccount } from "../Context/TransactionContext";
+import { TransactionContext, getAccounts, setAccount, deleteAccount } from "../Context/TransactionContext";
 import { useHistory } from "react-router-dom";
 import { BrowserRouter, Route, Switch, useRouteMatch } from 'react-router-dom';
 
@@ -288,6 +288,8 @@ const TransactionUserTable = (props) => {
 }
 const TransactionAccountTable = (props) => {
 
+  let { transactionstate, transactiondispatch } = useContext(TransactionContext);
+  
 
   return(
     <Table striped bordered hover>
@@ -304,7 +306,7 @@ const TransactionAccountTable = (props) => {
       {
         props.user.map(u =>
           <tr key={Math.random()}>
-            <td onClick={()=>{}} ><DeleteOutlined />Delete</td>
+            <td onClick={()=>{deleteAccount(transactiondispatch, u.id)}} ><DeleteOutlined />Delete</td>
             <td>{u.id}</td>
             <td>{u.name}</td>
             <td>{u.balance}</td>

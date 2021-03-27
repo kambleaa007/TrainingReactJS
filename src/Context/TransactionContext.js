@@ -175,6 +175,18 @@ export const setAccount = async ( dispatch, account ) => {
             })
 }
 
+export const deleteAccount = async (dispatch, id ) => {
+    await axios
+            .delete(`https://my-banking-json-server.herokuapp.com/Accounts/`+ id )
+            .then(res => {
+                console.log(res);
+                // dispatch({
+                //      type: "delete-account",
+                //      payload: res
+                // })
+            })
+}
+
 
 
 
