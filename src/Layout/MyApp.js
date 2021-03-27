@@ -26,7 +26,7 @@ import Table from 'react-bootstrap/Table'
 //Adding antd modules and style
 import { Button as Button1, Modal, Form, Input, Radio, Dropdown, Menu, Select } from 'antd';
 import "antd/dist/antd.css";
-import { DownOutlined, UserOutlined } from '@ant-design/icons';
+import { DownOutlined, UserOutlined, DeleteOutlined } from '@ant-design/icons';
 
 import { TransactionContext, getAccounts, setAccount } from "../Context/TransactionContext";
 import { useHistory } from "react-router-dom";
@@ -304,7 +304,7 @@ const TransactionAccountTable = (props) => {
       {
         props.user.map(u =>
           <tr key={Math.random()}>
-            <td onClick={()=>{}} >Delete</td>
+            <td onClick={()=>{}} ><DeleteOutlined />Delete</td>
             <td>{u.id}</td>
             <td>{u.name}</td>
             <td>{u.balance}</td>
@@ -350,7 +350,7 @@ function AddNewUser (props) {
   const setAccountData = async (values) => {
     await setAccount(transactiondispatch, {
       id: Math.floor(Math.random() * 100), name: values.Name,  balance: 0, type: values.accounttype, linked_accounts: [], transactions: []
-    });
+    }); // sent json (Account obj) built from values 
   }
 
   const formRef = React.createRef();
