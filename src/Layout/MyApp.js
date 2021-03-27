@@ -375,8 +375,9 @@ function AddNewUser (props) {
 
   var onFinish = values => {
     // console.log(values);
-    addContact(values)
-    setAccountData(values)
+    // addContact(values)
+    addAccount(values);
+    setAccountData(values);
   };
   var onReset = () => {
     formRef.current.resetFields();

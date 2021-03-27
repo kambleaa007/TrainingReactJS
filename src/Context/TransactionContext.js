@@ -168,10 +168,11 @@ export const setAccount = async ( dispatch, account ) => {
             .post(`https://my-banking-json-server.herokuapp.com/Accounts`, account)
             .then(res => {
                 console.log(res);
-                dispatch({
-                    type: "add-account",
-                    payload: res.data
-                })
+                // getting error for this dispatch only contacts coming, not Accounts, not setting all values correctly
+                // dispatch({
+                //     type: "add-account",
+                //     payload: res.data
+                // })
             })
 }
 
