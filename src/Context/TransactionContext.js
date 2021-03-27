@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from "axios";
 
+import AddedSuccess from "../Component/Success/AddedSuccess";
 
 const TransactionContext = React.createContext();
 
@@ -11,6 +12,7 @@ let initialState = {
     amount: 0.00,
     due_date: "10/10/1970",
     type: "NONE",
+    success_message: null,
     transactions : [
         {
             id: "0",
@@ -126,7 +128,10 @@ let reducer = (state, action) => {
         case "FETCH-ACCOUNTS":
             return {
                 ...state, Accounts: action.payload
-            }    
+            }
+
+        case "show-success-toast":
+            return { ...state, success_message: action.payload };    
     }
 };
 
@@ -173,6 +178,11 @@ export const setAccount = async ( dispatch, account ) => {
                 //     type: "add-account",
                 //     payload: res.data
                 // })
+                dispatch({
+                    type: "show-success-toast",
+                    payload: res.status
+                })
+                //return res.status;
             })
 }
 

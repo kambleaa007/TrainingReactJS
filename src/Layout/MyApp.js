@@ -33,6 +33,9 @@ import { useHistory } from "react-router-dom";
 import { BrowserRouter, Route, Switch, useRouteMatch } from 'react-router-dom';
 
 
+import AddedSuccess from "../Component/Success/AddedSuccess";
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -352,6 +355,8 @@ function AddNewUser (props) {
 
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
 
+  const [status, setStatus] = useState(null);
+
   const setAccountData = async (values) => {
     await setAccount(transactiondispatch, {
       id: Math.floor(Math.random() * 100), name: values.Name,  balance: 0, type: values.accounttype, linked_accounts: [], transactions: []
@@ -457,6 +462,7 @@ function AddNewUser (props) {
 
         </Form.Item>
       </Form>
+      <h1>{transactionstate.success_message != null ? <AddedSuccess /> : null} </h1>
       </div>
   )
 
