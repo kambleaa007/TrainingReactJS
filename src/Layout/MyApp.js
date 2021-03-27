@@ -349,6 +349,8 @@ const TransactionAccountTable = (props) => {
 
 function AddNewUser (props) {
 
+  let { transactionstate, transactiondispatch } = useContext(TransactionContext);
+
   const setAccountData = async (values) => {
     await setAccount(transactiondispatch, {
       id: Math.floor(Math.random() * 100), name: values.Name,  balance: 0, type: values.accounttype, linked_accounts: [], transactions: []
@@ -357,7 +359,7 @@ function AddNewUser (props) {
 
   const formRef = React.createRef();
 
-  let { transactionstate, transactiondispatch } = useContext(TransactionContext);
+
   const { Option } = Select;
 
 

@@ -170,7 +170,7 @@ export const setAccount = async ( dispatch, account ) => {
                 console.log(res);
                 dispatch({
                     type: "add-account",
-                    payload: res
+                    payload: res.data
                 })
             })
 }
@@ -180,10 +180,7 @@ export const deleteAccount = async (dispatch, id ) => {
             .delete(`https://my-banking-json-server.herokuapp.com/Accounts/`+ id )
             .then(res => {
                 console.log(res);
-                // dispatch({
-                //      type: "delete-account",
-                //      payload: res
-                // })
+                getAccounts(dispatch);
             })
 }
 
