@@ -356,6 +356,7 @@ function AddNewUser (props) {
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
 
   const [status, setStatus] = useState(null);
+  
 
   const setAccountData = async (values) => {
     await setAccount(transactiondispatch, {
@@ -462,7 +463,7 @@ function AddNewUser (props) {
 
         </Form.Item>
       </Form>
-      <h1>{transactionstate.success_message != null ? <AddedSuccess /> : null} </h1>
+      <h1>{transactionstate.success_message != null ? <AddedSuccess setStatus={setStatus} /> : null} </h1>
       </div>
   )
 
