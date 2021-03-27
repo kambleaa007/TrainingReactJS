@@ -295,6 +295,7 @@ const TransactionAccountTable = (props) => {
     <Table striped bordered hover>
     <thead>
       <tr>
+        <th>#</th>
         <th>ID</th>
         <th>Name</th>
         <th>Balance</th>
