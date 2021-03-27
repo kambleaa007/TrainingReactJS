@@ -28,7 +28,7 @@ import { Button as Button1, Modal, Form, Input, Radio, Dropdown, Menu, Select } 
 import "antd/dist/antd.css";
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
-import { TransactionContext, getAccounts } from "../Context/TransactionContext";
+import { TransactionContext, getAccounts, setAccount } from "../Context/TransactionContext";
 import { useHistory } from "react-router-dom";
 import { BrowserRouter, Route, Switch, useRouteMatch } from 'react-router-dom';
 
@@ -196,8 +196,8 @@ function TransactionCheck(props) {
         <button onClick={getAccountData}>Call axios getAccountData</button>
         <button onClick={addTransaction}>Add New Dummy Transactions</button>
         <button onClick={addAccTransaction}>Add New Dummy Acc Transactions</button>
-        <p>Accounts.length: {transactionstate.Accounts.length}</p>
-        <p>Tranctions.length: {transactionstate.Accounts.map(t=>t.transactions.length)}</p>
+        <p>Accounts.length: { transactionstate.Accounts != null ? transactionstate.Accounts.length : 0 }</p>
+        <p>Tranctions.length: { transactionstate.Accounts.map(t=>t.transactions != null ? t.transactions.length : 0 )}</p>
           
         <p>{transactionstate.transactions.map(t=>
         <div>
@@ -304,6 +304,7 @@ const TransactionAccountTable = (props) => {
       {
         props.user.map(u =>
           <tr key={Math.random()}>
+            <td onClick={()=>{}} >Delete</td>
             <td>{u.id}</td>
             <td>{u.name}</td>
             <td>{u.balance}</td>
@@ -319,14 +320,19 @@ const TransactionAccountTable = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {u.transactions.map(t => 
-                  <tr>
-                    <td>{t.status}</td>
-                    <td>{t.amount}</td>
-                    <td>{t.due_date}</td>
-                    <td>{t.type}</td>
-                  </tr>
-                  )
+                {
+                u.transactions != null ?
+
+                  u.transactions.map(t => 
+                    <tr>
+                      <td>{t.status}</td>
+                      <td>{t.amount}</td>
+                      <td>{t.due_date}</td>
+                      <td>{t.type}</td>
+                    </tr>
+                    )
+                    : 
+                    null
                 }
                 </tbody>
                 </Table>
@@ -341,6 +347,12 @@ const TransactionAccountTable = (props) => {
 
 function AddNewUser (props) {
 
+  const setAccountData = async (values) => {
+    await setAccount(transactiondispatch, {
+      id: Math.floor(Math.random() * 100), name: values.Name,  balance: 0, type: values.accounttype, linked_accounts: [], transactions: []
+    });
+  }
+
   const formRef = React.createRef();
 
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
@@ -354,12 +366,13 @@ function AddNewUser (props) {
 
     let addAccount = (values) => transactiondispatch({
       type: "add-account", 
-      payload: {  id: Math.floor(Math.random() * 100),  name: values.Name,  balance: 0, type: values.type, linked_accounts: [], transactions: [] }
+      payload: {  id: Math.floor(Math.random() * 100),  name: values.Name,  balance: 0, type: values.accounttype, linked_accounts: [], transactions: [] }
     })
 
   var onFinish = values => {
     // console.log(values);
     addContact(values)
+    setAccountData(values)
   };
   var onReset = () => {
     formRef.current.resetFields();
