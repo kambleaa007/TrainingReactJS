@@ -297,7 +297,7 @@ const TransactionAccountTable = (props) => {
     async ()=> {
       await getAccounts(transactiondispatch);
     },
-    [] 
+    [] // to get call only once
   ) // fetch values from heroku, current context has only 1 Account value in initialState
 
 
