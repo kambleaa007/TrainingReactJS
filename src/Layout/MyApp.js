@@ -28,7 +28,7 @@ import { Button as Button1, Modal, Form, Input, Radio, Dropdown, Menu, Select } 
 import "antd/dist/antd.css";
 import { DownOutlined, UserOutlined, DeleteOutlined } from '@ant-design/icons';
 
-import { TransactionContext, getAccounts, setAccount, deleteAccount } from "../Context/TransactionContext";
+import { TransactionContext, getAccounts, setAccount, deleteAccount, putAccount, getAccount } from "../Context/TransactionContext";
 
 import { BrowserRouter, Route, Switch, useRouteMatch, useHistory, useParams } from 'react-router-dom';
 
@@ -264,12 +264,33 @@ function TransactionCheck(props) {
 
 function SingleAccount(props) {
 
-  const { accountId } =  useParams();
+  const { accountId } =  useParams(); // got the clicked single Account id
+  let { transactionstate, transactiondispatch } = useContext(TransactionContext);
+  
+  const [account, setAccount] = useState(null);
+
+  useEffect(
+    async ()=> {
+      setAccount(await getAccount(transactiondispatch, accountId))
+      console.log(account)
+    },
+    [] // to get call only once
+  ) // fetch values from heroku, current context has only 1 Account value in initialState
+
+  const putAccountData = async ()=> {
+    await putAccount(transactiondispatch,
+      {
+        
+      }
+    );
+  }
+
 
 
   return(
     <div>
-      Account {accountId}
+      Account {accountId} {console.log(account)}
+      { account != null ? <div>id: {account.id} name: {account.name}</div> : null }
     </div>
   )
 

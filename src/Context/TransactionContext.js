@@ -13,6 +13,7 @@ let initialState = {
     due_date: "10/10/1970",
     type: "NONE",
     success_message: null,
+    Account: null,
     transactions : [
         {
             id: "0",
@@ -168,6 +169,12 @@ export const getAccounts = async dispatch => {
 
 }
 
+export const getAccount = async ( dispatch, id ) => {
+    return await axios
+            .get(`https://my-banking-json-server.herokuapp.com/Accounts/`+id) 
+            .then( res => res.data )
+}
+
 export const setAccount = async ( dispatch, account ) => {
     await axios
             .post(`https://my-banking-json-server.herokuapp.com/Accounts`, account)
@@ -193,6 +200,11 @@ export const deleteAccount = async (dispatch, id ) => {
                 console.log(res);
                 getAccounts(dispatch);
             })
+}
+
+export const putAccount = async ( dispatch, account ) => {
+    await axios
+            .put(`https://my-banking-json-server.herokuapp.com/Accounts/`+account.id, account)
 }
 
 
