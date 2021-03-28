@@ -161,7 +161,7 @@ function TransactionCheck(props) {
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
   const history = useHistory();
   let { path, url } = useRouteMatch();
-
+  const { accountId } = useParams();
 
   const getAccountData = async ()=> {
     await getAccounts(transactiondispatch);
@@ -243,7 +243,7 @@ function TransactionCheck(props) {
           <Route path={`${path}/accountTable`}>
             <TransactionAccountTable user={transactionstate.Accounts}/>
           </Route>
-
+          <Route path={`${path}/account/:accountId`} component={SingleAccount} />
         </Switch>
       </div>
 
@@ -260,6 +260,19 @@ function TransactionCheck(props) {
   </div> 
 
   )
+}
+
+function SingleAccount(props) {
+
+  const { accountId } =  useParams();
+
+
+  return(
+    <div>
+      Account {accountId}
+    </div>
+  )
+
 }
 
 const TransactionUserTable = (props) => {
@@ -325,7 +338,7 @@ const TransactionAccountTable = (props) => {
         transactionstate.Accounts.map(u =>
           <tr key={Math.random()}>
             <td onClick={()=>{deleteAccount(transactiondispatch, u.id)}} ><DeleteOutlined />Delete</td>
-            <td>{u.id}</td>
+            <td onClick={()=>{history.push(`${url.replace('accountTable','account')}/`+u.id)}}>{u.id}</td>
 
             <td>{u.name}</td>
             <td>{u.balance}</td>
@@ -366,17 +379,7 @@ const TransactionAccountTable = (props) => {
   )
 }
 
-function SingleAccount(props) {
 
-  const { accountId } = props.match.params
-
-  return(
-    <div>
-      Account {accountId}
-    </div>
-  )
-
-}
 
 
 function AddNewUser (props) {
