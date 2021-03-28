@@ -29,8 +29,8 @@ import "antd/dist/antd.css";
 import { DownOutlined, UserOutlined, DeleteOutlined } from '@ant-design/icons';
 
 import { TransactionContext, getAccounts, setAccount, deleteAccount } from "../Context/TransactionContext";
-import { useHistory } from "react-router-dom";
-import { BrowserRouter, Route, Switch, useRouteMatch } from 'react-router-dom';
+
+import { BrowserRouter, Route, Switch, useRouteMatch, useHistory, useParams } from 'react-router-dom';
 
 
 import AddedSuccess from "../Component/Success/AddedSuccess";
@@ -243,6 +243,7 @@ function TransactionCheck(props) {
           <Route path={`${path}/accountTable`}>
             <TransactionAccountTable user={transactionstate.Accounts}/>
           </Route>
+
         </Switch>
       </div>
 
@@ -293,6 +294,11 @@ const TransactionAccountTable = (props) => {
 
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
   
+  const history = useHistory();
+  let { path, url } = useRouteMatch();
+  const { accountId } = useParams();
+
+
   // fetch values from heroku, current context has only 1 Account value in initialState
   useEffect(
     async ()=> {
@@ -316,10 +322,11 @@ const TransactionAccountTable = (props) => {
     </thead>
     <tbody>
       {
-        props.user.map(u =>
+        transactionstate.Accounts.map(u =>
           <tr key={Math.random()}>
             <td onClick={()=>{deleteAccount(transactiondispatch, u.id)}} ><DeleteOutlined />Delete</td>
             <td>{u.id}</td>
+
             <td>{u.name}</td>
             <td>{u.balance}</td>
             <td>{u.type}</td>
@@ -358,6 +365,19 @@ const TransactionAccountTable = (props) => {
   </Table>
   )
 }
+
+function SingleAccount(props) {
+
+  const { accountId } = props.match.params
+
+  return(
+    <div>
+      Account {accountId}
+    </div>
+  )
+
+}
+
 
 function AddNewUser (props) {
 
