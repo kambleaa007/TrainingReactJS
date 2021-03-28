@@ -293,6 +293,7 @@ const TransactionAccountTable = (props) => {
 
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
   
+  // fetch values from heroku, current context has only 1 Account value in initialState
   useEffect(
     async ()=> {
       await getAccounts(transactiondispatch);
