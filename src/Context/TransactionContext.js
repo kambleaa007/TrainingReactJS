@@ -171,7 +171,7 @@ export const getAccounts = async dispatch => {
 
 export const getAccount = async ( dispatch, id ) => {
     return await axios
-            .get(`https://my-banking-json-server.herokuapp.com/Accounts/`+id) 
+            .get(`https://my-banking-json-server.herokuapp.com/Accounts/`+id)
             .then( res => res.data )
 }
 
