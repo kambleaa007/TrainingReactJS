@@ -280,12 +280,16 @@ function SingleAccount(props) {
 
   const putAccountData = async (values)=> {
     
+    const newTransationArr = account.transactions;
+    
+    newTransationArr.push({
+      id: Math.floor(Math.random() * 100), status: "SUCCESS", payee_name: values.name, amount: values.amount, type: values.type 
+    });
+
     await putAccount(transactiondispatch,
       {
         id: account.id, name: account.name,  balance: account.balance + values.amount, type: account.type, linked_accounts: [], 
-        transactions: [{
-          id: Math.floor(Math.random() * 100), status: "SUCCESS", payee_name: values.name, amount: values.amount, type: values.type 
-        }]
+        transactions: newTransationArr
       }
     );
   }
