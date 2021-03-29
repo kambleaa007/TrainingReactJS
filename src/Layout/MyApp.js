@@ -282,7 +282,8 @@ function SingleAccount(props) {
     
     await putAccount(transactiondispatch,
       {
-        id: account.id, name: account.name,  balance: account.balance + amount, type: account.type, linked_accounts: [], transactions: [{
+        id: account.id, name: account.name,  balance: account.balance + values.amount, type: account.type, linked_accounts: [], 
+        transactions: [{
           id: Math.floor(Math.random() * 100), status: "SUCCESS", payee_name: values.name, amount: values.amount, type: values.type 
         }]
       }
@@ -322,6 +323,7 @@ function SingleAccount(props) {
       Account {accountId} {console.log(account)}
       { account != null ? <div>id: {account.id} name: {account.name}</div> : null }
       {/* { account != null ? <button onClick={putAccountData} > Credit {amount}</button> : null } */}
+      { account != null ? 
       <div>
         <Form {...layout}
           ref={formRef}
@@ -372,6 +374,7 @@ function SingleAccount(props) {
           </Form.Item>
         </Form>
       </div>
+    : null }
     </div>
   )
 
