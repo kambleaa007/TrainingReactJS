@@ -24,7 +24,7 @@ import Table from 'react-bootstrap/Table'
 // import Form from 'react-bootstrap/Form'
 
 //Adding antd modules and style
-import { Button as Button1, Modal, Form, Input, Radio, Dropdown, Menu, Select } from 'antd';
+import { Button as Button1, Modal, Form, Input, Radio, Dropdown, Menu, Select, Checkbox  } from 'antd';
 import "antd/dist/antd.css";
 import { DownOutlined, UserOutlined, DeleteOutlined } from '@ant-design/icons';
 
@@ -279,6 +279,7 @@ function SingleAccount(props) {
   ) // fetch values from heroku, current context has only 1 Account value in initialState
 
   const putAccountData = async ()=> {
+    
     await putAccount(transactiondispatch,
       {
         id: account.id, name: account.name,  balance: account.balance + amount, type: account.type, linked_accounts: [], transactions: [{
@@ -294,11 +295,92 @@ function SingleAccount(props) {
     <div>
       Account {accountId} {console.log(account)}
       { account != null ? <div>id: {account.id} name: {account.name}</div> : null }
-      <button onClick={putAccountData} > Credit {amount}</button>
+      { account != null ? <button onClick={putAccountData} > Credit {amount}</button> : null }
+      <AddTransaction />
     </div>
   )
 
 }
+
+function AddTransaction(props){
+
+  const formRef = React.createRef();
+
+
+  const { Option } = Select;
+
+
+  var onFinish = values => {
+    
+  };
+
+  var onReset = () => {
+    formRef.current.resetFields();
+  };
+
+  const layout = {
+    labelCol: {
+      span: 8
+    },
+    wrapperCol: {
+      span: 16
+    }
+  };
+  const tailLayout = {
+    wrapperCol: {
+      offset: 8,
+      span: 16
+    }
+  };
+
+    return(
+      <div>
+        <Form {...layout}
+        ref={formRef}
+        name="control-ref"
+        onFinish={onFinish}
+      >
+        <Form.Item
+          name="Name"
+          label="Name"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your Name!'
+            }
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          name="accounttype" label="Account Type" rules={[{ required: true,},]}
+        >
+          <Select
+            placeholder="Select Your Account Type"
+            //onChange={onAccountTypeChange}
+            allowClear
+          >
+            <Option value="CURRENT">CURRENT</Option>
+            <Option value="SAVING">SAVING</Option>
+            <Option value="SALARY">SALARY</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item {...tailLayout}>
+          <Button1 type="primary" htmlType="submit">
+            Submit
+          </Button1>
+          <Button1 htmlType="button" onClick={onReset}>
+            Reset
+          </Button1>
+
+        </Form.Item>
+      </Form>
+      </div>
+    )
+}
+
+
 
 const TransactionUserTable = (props) => {
 
