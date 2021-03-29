@@ -268,6 +268,7 @@ function SingleAccount(props) {
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
   
   const [account, setAccount] = useState(null);
+  const amount = 1000;
 
   useEffect(
     async ()=> {
@@ -280,7 +281,9 @@ function SingleAccount(props) {
   const putAccountData = async ()=> {
     await putAccount(transactiondispatch,
       {
-        
+        id: account.id, name: account.name,  balance: account.balance + amount, type: account.type, linked_accounts: [], transactions: [{
+          id: Math.floor(Math.random() * 100), status: "PENDING", payee_name: account.name, amount: amount, type: "CREDITED" 
+        }]
       }
     );
   }
@@ -291,6 +294,7 @@ function SingleAccount(props) {
     <div>
       Account {accountId} {console.log(account)}
       { account != null ? <div>id: {account.id} name: {account.name}</div> : null }
+      <button onClick={putAccountData} > Credit {amount}</button>
     </div>
   )
 
