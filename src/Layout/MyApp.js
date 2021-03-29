@@ -278,40 +278,24 @@ function SingleAccount(props) {
     [] // to get call only once
   ) // fetch values from heroku, current context has only 1 Account value in initialState
 
-  const putAccountData = async ()=> {
+  const putAccountData = async (values)=> {
     
     await putAccount(transactiondispatch,
       {
         id: account.id, name: account.name,  balance: account.balance + amount, type: account.type, linked_accounts: [], transactions: [{
-          id: Math.floor(Math.random() * 100), status: "PENDING", payee_name: account.name, amount: amount, type: "CREDITED" 
+          id: Math.floor(Math.random() * 100), status: "SUCCESS", payee_name: values.name, amount: values.amount, type: values.type 
         }]
       }
     );
   }
 
 
-
-  return(
-    <div>
-      Account {accountId} {console.log(account)}
-      { account != null ? <div>id: {account.id} name: {account.name}</div> : null }
-      { account != null ? <button onClick={putAccountData} > Credit {amount}</button> : null }
-      <AddTransaction />
-    </div>
-  )
-
-}
-
-function AddTransaction(props){
-
   const formRef = React.createRef();
-
 
   const { Option } = Select;
 
-
   var onFinish = values => {
-    
+    putAccountData(values);
   };
 
   var onReset = () => {
@@ -333,52 +317,66 @@ function AddTransaction(props){
     }
   };
 
-    return(
+  return(
+    <div>
+      Account {accountId} {console.log(account)}
+      { account != null ? <div>id: {account.id} name: {account.name}</div> : null }
+      {/* { account != null ? <button onClick={putAccountData} > Credit {amount}</button> : null } */}
       <div>
         <Form {...layout}
-        ref={formRef}
-        name="control-ref"
-        onFinish={onFinish}
-      >
-        <Form.Item
-          name="Name"
-          label="Name"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your Name!'
-            }
-          ]}
+          ref={formRef}
+          name="control-ref"
+          onFinish={onFinish}
         >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          name="accounttype" label="Account Type" rules={[{ required: true,},]}
-        >
-          <Select
-            placeholder="Select Your Account Type"
-            //onChange={onAccountTypeChange}
-            allowClear
+          <Form.Item
+            name="name"
+            label="Name"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your Name!'
+              }
+            ]}
           >
-            <Option value="CURRENT">CURRENT</Option>
-            <Option value="SAVING">SAVING</Option>
-            <Option value="SALARY">SALARY</Option>
-          </Select>
-        </Form.Item>
-        <Form.Item {...tailLayout}>
-          <Button1 type="primary" htmlType="submit">
-            Submit
-          </Button1>
-          <Button1 htmlType="button" onClick={onReset}>
-            Reset
-          </Button1>
+            <Input />
+          </Form.Item>
+          <Form.Item name="type" label="Amount" rules={[{ required: true,},]} >
+            <Select
+              placeholder="Select Your Transaction Type"
+              //onChange={onAccountTypeChange}
+              allowClear
+            >
+              <Option value="CREDITED">CREDITED</Option>
+              <Option value="DEBITED">DEBITED</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item name="amount" label="Amount" rules={[{ required: true,},]} >
+            <Select
+              placeholder="Select Your Amount"
+              //onChange={onAccountTypeChange}
+              allowClear
+            >
+              <Option value="100">100</Option>
+              <Option value="500">500</Option>
+              <Option value="2000">2000</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item {...tailLayout}>
+            <Button1 type="primary" htmlType="submit">
+              Submit
+            </Button1>
+            <Button1 htmlType="button" onClick={onReset}>
+              Reset
+            </Button1>
 
-        </Form.Item>
-      </Form>
+          </Form.Item>
+        </Form>
       </div>
-    )
+    </div>
+  )
+
 }
+
 
 
 
