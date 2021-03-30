@@ -346,7 +346,7 @@ function SingleAccount(props) {
           >
             <Input />
           </Form.Item>
-          <Form.Item name="type" label="Amount" rules={[{ required: true,},]} >
+          <Form.Item name="type" label="Transaction Type" rules={[{ required: true,},]} >
             <Select
               placeholder="Select Your Transaction Type"
               //onChange={onAccountTypeChange}
@@ -362,9 +362,9 @@ function SingleAccount(props) {
               //onChange={onAccountTypeChange}
               allowClear
             >
-              <Option value="100">100</Option>
-              <Option value="500">500</Option>
-              <Option value="2000">2000</Option>
+              <Option value={100}>100</Option>
+              <Option value={500}>500</Option>
+              <Option value={2000}>2000</Option>
             </Select>
           </Form.Item>
           <Form.Item {...tailLayout}>
