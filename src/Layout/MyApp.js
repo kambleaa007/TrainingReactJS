@@ -362,9 +362,9 @@ function SingleAccount(props) {
               //onChange={onAccountTypeChange}
               allowClear
             >
-              <Option value={100}>100</Option>
-              <Option value={500}>500</Option>
-              <Option value={2000}>2000</Option>
+              <Option value={100}> 100 </Option>
+              <Option value={500}> 500 </Option>
+              <Option value={2000}> 2000 </Option>
             </Select>
           </Form.Item>
           <Form.Item {...tailLayout}>
