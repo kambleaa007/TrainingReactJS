@@ -1,13 +1,13 @@
 import React, {useEffect, useState, useContext } from 'react';
 
-import Header from "./Header";
+import Header from "../../Common/Header/Header";
 
 import { useHistory } from "react-router-dom";
 
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 
-import { GlobalContext } from "../Context/GlobalContext";
-import "./PrivateBankingPayment.css";
+import { GlobalContext } from "../../Context/GlobalContext";
+import './PrivateBankingPayment.css';
 
 
 function PrivateBankingPayment(props) {

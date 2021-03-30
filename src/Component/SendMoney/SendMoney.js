@@ -1,11 +1,11 @@
 import React, {useEffect, useState, useContext } from 'react';
-import Header from "./../Component/Header";
+import Header from "./../../Common/Header/Header";
 
 import './SendMoney.css'
 
-import { GlobalContext } from "./../Context/GlobalContext";
+import { GlobalContext } from "./../../Context/GlobalContext";
 
-import { HeaderContext } from "./../Context/HeaderContext";
+import { HeaderContext } from "./../../Context/HeaderContext";
 
 function SendMoney(props) {
 

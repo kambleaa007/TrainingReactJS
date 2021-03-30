@@ -1,10 +1,10 @@
 import React, {useEffect, useState, useContext } from 'react';
-import Header from "./Header";
+import Header from "../../Common/Header/Header";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 
 import './StandingOrder.css'
 
-import { GlobalContext } from "../Context/GlobalContext";
+import { GlobalContext } from "../../Context/GlobalContext";
 
 function StandingOrder(props) {
 

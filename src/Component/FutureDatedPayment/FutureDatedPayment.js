@@ -1,10 +1,10 @@
 import React, {useEffect, useState, useContext } from 'react';
-import Header from "./Header";
+import Header from "../../Common/Header/Header";
 import { Table } from "react-bootstrap";
 
 import './FutureDatedPayment.css'
 
-import { GlobalContext } from "../Context/GlobalContext";
+import { GlobalContext } from "../../Context/GlobalContext";
 
 
 

@@ -67,7 +67,7 @@
     padding-top: 15px;
     padding-bottom: 15px;
     margin-left: 10px;
-    background-image: url(../Common/Logos/Plus1.png);    
+    background-image: url(../../Common/Logos/Plus1.png);    
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -146,7 +146,7 @@ span.info-logo:before {
     padding-bottom: 15px;
     margin-left: 10px;
 
-    background-image: url(../Common/Logos/Info.png);
+    background-image: url(../../Common/Logos/Info.png);
     background-repeat: no-repeat;
     background-size: cover;
 } */
