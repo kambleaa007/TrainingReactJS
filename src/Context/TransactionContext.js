@@ -131,6 +131,11 @@ let reducer = (state, action) => {
                 ...state, Accounts: action.payload
             }
 
+        // case "FETCH-ACCOUNT-ByID":
+        //     return {
+        //         ...state, Accounts: action.payload
+        //     }    
+
         case "show-success-toast":
             return { ...state, success_message: action.payload };    
     }
