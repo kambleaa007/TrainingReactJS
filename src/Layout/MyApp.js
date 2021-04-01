@@ -173,7 +173,7 @@ function TransactionCheck(props) {
 
 
   let status = () => 
-  transactiondispatch({ 
+      transactiondispatch({ 
         type: "ADD_CONTACT",
         payload: { id: Math.floor(Math.random() * 100), name: "newName", email: "newEmail" } 
       });
