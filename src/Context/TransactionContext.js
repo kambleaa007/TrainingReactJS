@@ -16,12 +16,13 @@ let initialState = {
     Account: null,
     transactions : [
         {
-            id: "0",
+            id: "0",            
+            accountid: null,
             status: "PENDING",
             payee_name: "abcd",
             amount: 1000.00,
             due_date: "10/10/2020",
-            type: "DEBITED"
+            type: "DEBITED",
         }
     ],
     contacts: [
@@ -95,8 +96,7 @@ let reducer = (state, action) => {
         case "set-type":
             return { ...state, type: action.payload }; 
         case "add-transaction":
-            const newTransationArr = [...state.transactions];
-            // const newArr = [...state.transactions, action.payload];
+            const newTransationArr = [...state.transactions];     // const newArr = [...state.transactions, action.payload];
             newTransationArr.push(action.payload);
             return { ...state, transactions: newTransationArr};      
         
@@ -210,8 +210,27 @@ export const deleteAccount = async (dispatch, id ) => {
 export const putAccount = async ( dispatch, account ) => {
     await axios
             .put(`https://my-banking-json-server.herokuapp.com/Accounts/`+account.id, account)
+            .then(res => {
+                console.log(res);
+                getAccounts(dispatch);
+            })
 }
 
+
+
+export const getTransactions = async dispatch => {
+    await axios
+            .get(`https://my-banking-json-server.herokuapp.com/Transactions`) 
+            .then(res => {
+                const result = res.data;
+                console.log(result);
+                dispatch({
+                    type: "FETCH-ACCOUNTS",
+                    payload: result   
+                })
+            })
+
+}
 
 
 
