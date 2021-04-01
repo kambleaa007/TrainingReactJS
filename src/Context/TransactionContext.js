@@ -136,6 +136,11 @@ let reducer = (state, action) => {
         //         ...state, Accounts: action.payload
         //     }    
 
+        case "FETCH-TRANSACTIONS":
+            return {
+                ...state, transactions: action.payload
+            }
+
         case "show-success-toast":
             return { ...state, success_message: action.payload };    
     }
@@ -225,7 +230,7 @@ export const getTransactions = async dispatch => {
                 const result = res.data;
                 console.log(result);
                 dispatch({
-                    type: "FETCH-ACCOUNTS",
+                    type: "FETCH-TRANSACTIONS",
                     payload: result   
                 })
             })

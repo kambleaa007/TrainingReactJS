@@ -28,7 +28,7 @@ import { Button as Button1, Modal, Form, Input, Radio, Dropdown, Menu, Select, C
 import "antd/dist/antd.css";
 import { DownOutlined, UserOutlined, DeleteOutlined } from '@ant-design/icons';
 
-import { TransactionContext, getAccounts, setAccount, deleteAccount, putAccount, getAccount } from "../Context/TransactionContext";
+import { TransactionContext, getAccounts, setAccount, deleteAccount, putAccount, getAccount, getTransactions } from "../Context/TransactionContext";
 
 import { BrowserRouter, Route, Switch, useRouteMatch, useHistory, useParams } from 'react-router-dom';
 
@@ -167,7 +167,9 @@ function TransactionCheck(props) {
     await getAccounts(transactiondispatch);
   }
 
-
+  const getTransactionData = async () => {
+    await getTransactions(transactiondispatch)
+  }
 
 
   let status = () => 
@@ -197,20 +199,22 @@ function TransactionCheck(props) {
     return(
       <div>
         <button onClick={getAccountData}>Call axios getAccountData</button>
+        <button onClick={getTransactionData}>Call axios getTransactionData</button>
         <button onClick={addTransaction}>Add New Dummy Transactions</button>
         <button onClick={addAccTransaction}>Add New Dummy Acc Transactions</button>
         <p>Accounts.length: { transactionstate.Accounts != null ? transactionstate.Accounts.length : 0 }</p>
         <p>Tranctions.length: { transactionstate.Accounts.map(t=>t.transactions != null ? t.transactions.length : 0 )}</p>
           
-        <p>{transactionstate.transactions.map(t=>
-        <div>
-          amount is {t.amount} <br/>
-          payee_name is {t.payee_name}
-        </div>         
-        )}</p>
-        <div>
-        length: {transactionstate.transactions.length}
-        </div>
+        <p><h5>transactionstate.transactions</h5>
+          {transactionstate.transactions.map(t=>
+          <div>
+            amount is {t.amount} accountid is {t.accountid} payee_name is {t.payee_name} {/* status is {t.status} due_date is {t.due_date} */}
+          </div>         
+          )}
+        </p>
+          <div>
+            <h5>transactionstate.transactions.length:</h5> {transactionstate.transactions.length}
+          </div>
       </div>
     )
   }
