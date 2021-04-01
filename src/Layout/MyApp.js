@@ -28,7 +28,7 @@ import { Button as Button1, Modal, Form, Input, Radio, Dropdown, Menu, Select, C
 import "antd/dist/antd.css";
 import { DownOutlined, UserOutlined, DeleteOutlined } from '@ant-design/icons';
 
-import { TransactionContext, getAccounts, setAccount, deleteAccount, putAccount, getAccount, getTransactions } from "../Context/TransactionContext";
+import { TransactionContext, getAccounts, setAccount, deleteAccount, putAccount, getAccount, getTransactions, setTransaction } from "../Context/TransactionContext";
 
 import { BrowserRouter, Route, Switch, useRouteMatch, useHistory, useParams } from 'react-router-dom';
 
@@ -268,7 +268,7 @@ function TransactionCheck(props) {
 
 function SingleAccount(props) {
 
-  const { accountId } =  useParams(); // got the clicked single Account id
+  const { accountId } =  useParams(); // got the clicked single Account id -> used in json call or data
   let { transactionstate, transactiondispatch } = useContext(TransactionContext);
   
   const [account, setAccount] = useState(null);
@@ -298,13 +298,22 @@ function SingleAccount(props) {
     );
   }
 
+  const setTransactionData = async (values) => {
+    await setTransaction(transactiondispatch,
+        {
+          id: Math.floor(Math.random() * 100), accountid: accountId, status: "SUCCESS", payee_name: values.name, amount: values.amount, type: values.type 
+        }
+      )
+  }
+
 
   const formRef = React.createRef();
 
   const { Option } = Select;
 
   var onFinish = values => {
-    putAccountData(values);
+    putAccountData(values);       // put json inside account's transaction -> you need update transaction part only
+    setTransactionData(values);   // post transaction json -> every tranasction post inside it (array)
   };
 
   var onReset = () => {
