@@ -284,7 +284,7 @@ function SingleAccount(props) {
 
   const putAccountData = async (values)=> {
     
-    const newTransationArr = account.transactions;
+    const newTransationArr = account.transactions; // useEffect hook helps to fetch values for current selected accountId
     
     newTransationArr.push({
       id: Math.floor(Math.random() * 100), status: "SUCCESS", payee_name: values.name, amount: values.amount, type: values.type 
