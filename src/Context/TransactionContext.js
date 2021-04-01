@@ -237,7 +237,7 @@ export const getTransactions = async dispatch => {
 
 }
 
-export const setTransaction = async ( dispatch, transaction ) => {
+export const setTransaction = async ( dispatch, transaction ) => { // /Transactions with -> new accountId field
     await axios
             .post(`https://my-banking-json-server.herokuapp.com/Transactions`, transaction)
             .then(res => {
