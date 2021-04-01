@@ -208,7 +208,7 @@ function TransactionCheck(props) {
         <p><h5>transactionstate.transactions</h5>
           {transactionstate.transactions.map(t=>
           <div>
-            amount is {t.amount} accountid is {t.accountid} payee_name is {t.payee_name} {/* status is {t.status} due_date is {t.due_date} type is {t.type}*/}
+            amount is <b>{t.amount}</b> accountid is <b>{t.accountid}</b> payee_name is <b>{t.payee_name}</b> {/* status is {t.status} due_date is {t.due_date} type is {t.type}*/}
           </div>         
           )}
         </p>

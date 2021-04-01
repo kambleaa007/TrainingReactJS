@@ -237,6 +237,14 @@ export const getTransactions = async dispatch => {
 
 }
 
+export const setTransaction = async ( dispatch, transaction ) => {
+    await axios
+            .post(`https://my-banking-json-server.herokuapp.com/Transactions`, transaction)
+            .then(res => {
+                console.log(res);
+            })
+}
+
 
 
 
