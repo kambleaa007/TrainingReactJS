@@ -282,6 +282,8 @@ function SingleAccount(props) {
     [] // to get call only once
   ) // fetch values from heroku, current context has only 1 Account value in initialState
 
+
+  // 1st get value for current account thro useEffect -> collect old transaction in temp array -> .push new transaction -> PUT and update whole Account json data
   const putAccountData = async (values)=> {
     
     const newTransationArr = account.transactions; // useEffect hook helps to fetch values for current selected accountId
