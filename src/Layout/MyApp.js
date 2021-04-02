@@ -251,14 +251,14 @@ function TransactionCheck(props) {
         </Switch>
       </div>
 
-      {/* 
-      
-        <p>contacts length is: {state.contacts.length}</p>   
-        <h3>
-          contacts name is {state.contacts.map(c=>c.name)}
-        </h3>  
-      
-      */}
+        {/* 
+        
+          <p>contacts length is: {state.contacts.length}</p>   
+          <h3>
+            contacts name is {state.contacts.map(c=>c.name)}
+          </h3>  
+        
+        */}
       
       
   </div> 
