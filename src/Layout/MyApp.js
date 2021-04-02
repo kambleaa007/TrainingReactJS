@@ -137,10 +137,10 @@ function MyAppComponent(props) {
 
                     </div>
 
-{/* 
-<TransactionCheck /> here
+                    {/* 
+                    <TransactionCheck /> here
 
-*/}
+                    */}
 
                     
 
@@ -203,7 +203,7 @@ function TransactionCheck(props) {
         <button onClick={addTransaction}>Add New Dummy Transactions</button>
         <button onClick={addAccTransaction}>Add New Dummy Acc Transactions</button>
 
-        
+
         <p>Accounts.length: { transactionstate.Accounts != null ? transactionstate.Accounts.length : 0 }</p>
         <p>Tranctions.length: { transactionstate.Accounts.map(t=>t.transactions != null ? t.transactions.length : 0 )}</p>
           
