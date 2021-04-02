@@ -308,7 +308,6 @@ function SingleAccount(props) {
       )
   }
 
-
   const formRef = React.createRef();
 
   const { Option } = Select;
