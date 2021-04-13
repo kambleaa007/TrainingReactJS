@@ -305,7 +305,7 @@ function SingleAccount(props) {
   const setTransactionData = async (values) => {
     await setTransaction(transactiondispatch,
         {
-          id: Math.floor(Math.random() * 100), accountid: accountId, status: "SUCCESS", payee_name: values.name, amount: values.amount, type: values.type 
+          id: Math.floor(Math.random() * 100), AccountId: accountId, status: "SUCCESS", payee_name: values.name, amount: values.amount, type: values.type 
         }
       )
   }
