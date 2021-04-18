@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 //import SendMoney  from "../Component/SendMoney";
 //import 'bootstrap/dist/css/bootstrap.css';
 import Header from "../Common/Header/Header";
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 
 
 
@@ -21,6 +21,8 @@ function HomeComponent(props) {
 
  
 export default HomeComponent;
+
+let history = useHistory();
 
 function Operations() {
     return ( 
