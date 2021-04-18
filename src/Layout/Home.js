@@ -28,14 +28,14 @@ function Operations() {
         <div className="operations-outer">
             <div className="Operations">
                 <ul className="Services">
-                <li><a href="/sendMoney"><i className='send-money'></i>Send Money or pay a bill<i className=' next'></i></a>  </li>
-                <li><a href="/transferMoney"><i className='transfer-money'></i>Transfer between my accounts<i className=' next'></i></a></li>
-                <li><a href="/standingOrders">Standing orders<i className='next'></i></a></li>
-                <li><a href="/managePayees">Manage payees<i className='  next'></i></a></li>
-                <li><a href="/mobileTopup">Mobile top up<i className=' next'></i></a></li>
-                <li><a href="/directDebits">Direct debits<i className='  next'></i></a></li>
-                <li><a href="/futureDatedPayments">Future dated payments<i className='  next'></i></a></li>
-                <li><a href="/privateBankingPayment">Private banking payment<i className='  next'></i></a></li>
+                <li onClick={() => history.push("/sendMoney")}><i className='send-money'></i>Send Money or pay a bill<i className=' next'></i>  </li>
+                <li onClick={() => history.push("/transferMoney")}><i className='transfer-money'></i>Transfer between my accounts<i className=' next'></i></li>
+                <li onClick={() => history.push("/standingOrders")}>Standing orders<i className='next'></i></li>
+                <li onClick={() => history.push("/managePayees")}>Manage payees<i className='  next'></i></li>
+                <li onClick={() => history.push("/mobileTopup")}>Mobile top up<i className=' next'></i></li>
+                <li onClick={() => history.push("/directDebits")}>Direct debits<i className='  next'></i></li>
+                <li onClick={() => history.push("/futureDatedPayments")}>Future dated payments<i className='  next'></i></li>
+                <li onClick={() => history.push("/privateBankingPayment")}>Private banking payment<i className='  next'></i></li>
                 </ul> 
             </div>
         </div>
