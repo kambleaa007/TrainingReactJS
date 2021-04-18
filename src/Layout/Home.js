@@ -22,9 +22,12 @@ function HomeComponent(props) {
  
 export default HomeComponent;
 
-let history = useHistory();
+
 
 function Operations() {
+
+    let history = useHistory();
+
     return ( 
         
         <div className="operations-outer">
