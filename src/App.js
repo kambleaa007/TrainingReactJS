@@ -48,7 +48,7 @@ function App() {
     <GlobalProvider value= {{Global: Data}} >
     <HeaderProvider>
     <TransactionProvider>  
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <div className="App">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
@@ -76,7 +76,7 @@ function App() {
             <Footer />
 
         </div>
-    </BrowserRouter>
+    </HashRouter>
     </TransactionProvider>
     </HeaderProvider>
     </GlobalProvider>
