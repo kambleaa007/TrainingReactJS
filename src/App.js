@@ -22,7 +22,7 @@ import MyAppLayout from "./Layout/MyAppLayout";
 
 import Footer from "./Common/Footer/Footer";
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { GlobalProvider } from "./Context/GlobalContext";
 import { HeaderProvider } from "./Context/HeaderContext";
