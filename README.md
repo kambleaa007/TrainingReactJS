@@ -44,6 +44,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Testing with jest enzyme
 
+* enzyme 
+you can grab element by tagname, classname 
+
 npm i --save-dev enzyme enzyme-adapter-react-16
 
 
@@ -57,7 +60,20 @@ configure({ adapter: new Adapter() });
 // test file
 import { shallow, mount, render } from 'enzyme';
 
+* shallow create inst of compo -> no nested compo rendered
+    * const wrapper = shallow(<App />)
+    * wrapper.debug --> have all code of compo
 
+
+example 1:
+```````
+describe("Test1", () => {
+  test('renders learn react link', () => {
+    const wrapper = shallow(<App />)
+    console.log(wrapper.debug())
+  });
+})
+```````
 
 ### `npm run eject`
 
