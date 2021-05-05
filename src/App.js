@@ -50,6 +50,7 @@ function App() {
     <TransactionProvider>  
     <HashRouter basename={process.env.PUBLIC_URL}>
       <div className="App">
+        div App
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 

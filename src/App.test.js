@@ -14,6 +14,7 @@ describe("Test1", () => {
   
     const wrapper = shallow(<App />)
     console.log(wrapper.debug())
+    expect(wrapper.find("div").text()).toContain("div App")
   });
 
 
