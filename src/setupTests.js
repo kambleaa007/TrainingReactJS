@@ -5,9 +5,16 @@
 import '@testing-library/jest-dom';
 
 
+// NOT WORKING WORKS WHEN PLACED IN .test.js FILE ONLY
+
+import Enzyme from 'Enzyme';
+import { configure  } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+Enzyme.configure({ adaptor : new Adapter() });
+
+// NOT WORKING WORKS WHEN PLACED IN .test.js FILE ONLY
 
 
-// import { Configure } from "enzyme";
-// import Adapter from "enzyme-adapter-react-16";
-
-// Configure({ adaptor : new Adapter() });
+// import * as enzyme from 'enzyme';
+// import * as Adapter from 'enzyme-adapter-react-16';
+// enzyme.configure({ adapter: new Adapter() });

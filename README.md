@@ -52,9 +52,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 
 npm i --save-dev enzyme enzyme-adapter-react-16
-npm i enzyme-adapter-react-16 enzyme-to-json --save-dev
+npm i enzyme-to-json --save-dev
 
-
+npm i --save-dev react-test-renderer
 
 
 // setupTests.js  setup file 
