@@ -54,6 +54,8 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
+// test file
+import { shallow, mount, render } from 'enzyme';
 
 
 
