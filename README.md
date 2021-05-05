@@ -44,11 +44,15 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Testing with jest enzyme
 
-npm i enzyme enzyme-adaptor-react-16 react-test-renderer
-npm i enzyme-to-json
+npm i --save-dev enzyme enzyme-adapter-react-16
 
 
 
+// setupTests.js  setup file 
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 
 
