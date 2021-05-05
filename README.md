@@ -45,9 +45,15 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Testing with jest enzyme
 
 * enzyme 
-you can grab element by tagname, classname 
+    * you can grab element by tagname, classname 
+
+* TDD
+    * First you fail the test then pass it by adding actual code
+
 
 npm i --save-dev enzyme enzyme-adapter-react-16
+npm i enzyme-adapter-react-16 enzyme-to-json --save-dev
+
 
 
 
