@@ -22,6 +22,8 @@ import MyAppLayout from "./Layout/MyAppLayout";
 
 import Footer from "./Common/Footer/Footer";
 
+import NavBar from './Common/NavBar';
+
 import { HashRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { GlobalProvider } from "./Context/GlobalContext";
@@ -52,6 +54,9 @@ function App() {
       <div className="App">
         div App
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+          <NavBar/>
+
 
 
             <Switch>

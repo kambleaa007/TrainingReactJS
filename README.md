@@ -81,6 +81,12 @@ describe("Test1", () => {
 })
 ```````
 
+### code coverage
+
+npm test -- --coverage
+
+
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**

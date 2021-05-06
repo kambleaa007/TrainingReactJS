@@ -24,7 +24,7 @@ export default HomeComponent;
 
 
 
-function Operations() {
+export function Operations() {
 
     let history = useHistory();
 

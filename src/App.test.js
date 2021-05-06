@@ -1,6 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import HomeComponent from './Layout/Home';
+import { Operations } from './Layout/Home';
+import Header from './Common/Header/Header';
+import NavBar from './Common/NavBar';
+
 
 import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -10,6 +14,12 @@ configure({ adapter: new Adapter() });
 
 describe("Test1", () => {
 
+  test('renders NavBar', () => {
+    const wrapper = shallow(<NavBar />)
+    expect(wrapper.find("React.Fragment").text()).toContain("NavBar")
+  });
+
+
   test('renders div app text', () => {
   
     const wrapper = shallow(<App />)
@@ -17,9 +27,23 @@ describe("Test1", () => {
     expect(wrapper.find("div").text()).toContain("div App")
   });
 
-  test('render li text', () => {
+  it('HomeComponent have Header', () => {
     const wrapper = shallow(<HomeComponent />)
-    expect(wrapper.find("li").text()).toContain("Send Money or pay a bill")
+    expect(wrapper.find('Header'))
+  })
+
+  test('render Header in HomeComponent', () => {
+    const wrapper = shallow(<HomeComponent />)
+    const header = (<Header name={"Payments"} isBack={false}/>)
+
+    expect(wrapper.contains(header)).toEqual(true);
+  })
+
+  test('render Operations in HomeComponent', () => {
+    const wrapper = shallow(<HomeComponent />)
+    const operation = (<Operations />)
+
+    expect(wrapper.contains(operation)).toEqual(true);
   })
 
 })
