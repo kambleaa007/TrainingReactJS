@@ -5,11 +5,11 @@ import { Operations } from './Layout/Home';
 import Header from './Common/Header/Header';
 import NavBar from './Common/NavBar';
 
-
 import { configure, shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+// import { configure, shallow, mount } from 'enzyme';
+// import Adapter from 'enzyme-adapter-react-16';
 
-configure({ adapter: new Adapter() });
+// configure({ adapter: new Adapter() });
 
 
 describe("Test1", () => {
@@ -18,6 +18,16 @@ describe("Test1", () => {
     const wrapper = shallow(<NavBar />)
     expect(wrapper.find("Nav").text()).toContain("NavBar")
   });
+
+  test('renders NavBar', () => {
+    const wrapper = shallow(<NavBar />)
+    expect(wrapper.find("#nav").text()).toContain("NavBar")
+  });
+
+  test('NavBar with Nav element', () => {
+    const wrapper = shallow(<NavBar />)
+    expect(wrapper.find({ activeKey:'/home' }))
+  })
 
 
   test('renders div app text', () => {

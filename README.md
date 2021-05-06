@@ -86,6 +86,36 @@ describe("Test1", () => {
 npm test -- --coverage
 
 
+PASS  src/App.test.js (37.612 s)
+  Test1
+    √ renders NavBar (46 ms)
+    √ NavBar with Nav element (111 ms)
+    √ renders div app text (18 ms)
+    √ HomeComponent have Header (6 ms)
+    √ render Header in HomeComponent (8 ms)
+    √ render Operations in HomeComponent (3 ms)
+
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-------------------|---------|----------|---------|---------|-------------------
+All files          |      20 |        0 |   10.34 |      20 | 
+ src               |      25 |      100 |    7.69 |      25 | 
+  App.js           |      25 |      100 |    7.69 |      25 | 63-76
+ src/Common        |      50 |      100 |      50 |      50 | 
+  NavBar.js        |      50 |      100 |      50 |      50 | 11
+ src/Common/Header |   16.67 |        0 |       0 |   16.67 | 
+  Header.js        |   16.67 |        0 |       0 |   16.67 | 9-20
+ src/Layout        |    9.09 |      100 |      10 |    9.09 | 
+  Home.js          |    9.09 |      100 |      10 |    9.09 | 29-43
+-------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        46.422 s
+Ran all test suites.
+
+Watch Usage: Press w to show more.
+
 
 ### `npm run eject`
 
