@@ -4,8 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 export default function NavBar() {
     return (
         <div>
-            <React.Fragment>
-                
+            <React.Fragment>                
                 <Nav
                     activeKey="/home"
                     onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
