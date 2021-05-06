@@ -30,15 +30,16 @@ describe("Test1", () => {
   })
 
 
-  test('renders div app text', () => {
-  
+  test('renders div app text', () => {  
     const wrapper = shallow(<App />)
     //console.log(wrapper.debug())
+
     expect(wrapper.find("div").text()).toContain("div App")
   });
 
   it('HomeComponent have Header', () => {
     const wrapper = shallow(<HomeComponent />)
+    
     expect(wrapper.find('Header'))
   })
 
