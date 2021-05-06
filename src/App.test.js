@@ -14,6 +14,15 @@ import { configure, shallow, mount } from 'enzyme';
 
 describe("Test1", () => {
 
+
+  test('should call onselect', () => {
+    const onselect = jest.fn()
+    const wrapper = shallow(<NavBar />)
+
+    expect(wrapper.find("#nav").at(0).simulate('select',{target:{selectedKey: 1}}))
+    expect(onselect).toHaveBeenCalledWith(1);
+  })
+
   test('renders NavBar', () => {
     const wrapper = shallow(<NavBar />)
     expect(wrapper.find("Nav").text()).toContain("NavBar")
@@ -39,7 +48,7 @@ describe("Test1", () => {
 
   it('HomeComponent have Header', () => {
     const wrapper = shallow(<HomeComponent />)
-    
+
     expect(wrapper.find('Header'))
   })
 

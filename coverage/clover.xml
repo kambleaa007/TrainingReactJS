@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1620302279420" clover="3.2.0">
-  <project timestamp="1620302279420" name="All files">
-    <metrics statements="35" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="29" coveredmethods="3" elements="66" coveredelements="10" complexity="0" loc="35" ncloc="35" packages="4" files="4" classes="4"/>
+<coverage generated="1620310912520" clover="3.2.0">
+  <project timestamp="1620310912520" name="All files">
+    <metrics statements="35" coveredstatements="8" conditionals="2" coveredconditionals="0" methods="29" coveredmethods="4" elements="66" coveredelements="12" complexity="0" loc="35" ncloc="35" packages="4" files="4" classes="4"/>
     <package name="src">
       <metrics statements="16" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="1"/>
       <file name="App.js" path="F:\react-handson\React-Tasks\TrainingReactJS\src\App.js">
@@ -25,11 +25,11 @@
       </file>
     </package>
     <package name="src.Common">
-      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="NavBar.js" path="F:\react-handson\React-Tasks\TrainingReactJS\src\Common\NavBar.js">
-        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.Common.Header">
