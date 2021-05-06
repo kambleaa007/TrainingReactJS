@@ -5,11 +5,11 @@ export default function NavBar() {
     return (
         <div>
             <React.Fragment>
-                NavBar
+                
                 <Nav
                     activeKey="/home"
                     onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-                    >
+                    >NavBar
                     <Nav.Item>
                         <Nav.Link href="/home">Active</Nav.Link>
                     </Nav.Item>

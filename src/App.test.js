@@ -16,7 +16,7 @@ describe("Test1", () => {
 
   test('renders NavBar', () => {
     const wrapper = shallow(<NavBar />)
-    expect(wrapper.find("React.Fragment").text()).toContain("NavBar")
+    expect(wrapper.find("Nav").text()).toContain("NavBar")
   });
 
 
