@@ -17,10 +17,10 @@ describe("Test1", () => {
 
   test('should call onselect', () => {
     const onselect = jest.fn()
-    const wrapper = shallow(<NavBar />)
+    const wrapper = shallow(<NavBar onselect={onselect}/>)
 
     expect(wrapper.find("#nav").at(0).simulate('select',{target:{selectedKey: 1}}))
-    //expect(onselect).toHaveBeenCalledWith(1);
+    //expect(onselect).toHaveBeenCalledWith(0);
   })
 
   test('renders NavBar', () => {
