@@ -86,35 +86,73 @@ describe("Test1", () => {
 npm test -- --coverage
 
 
-PASS  src/App.test.js (37.612 s)
+ PASS  src/App.test.js (49.278 s)
   Test1
-    √ renders NavBar (46 ms)
-    √ NavBar with Nav element (111 ms)
-    √ renders div app text (18 ms)
-    √ HomeComponent have Header (6 ms)
-    √ render Header in HomeComponent (8 ms)
-    √ render Operations in HomeComponent (3 ms)
+    √ should call onselect (25 ms)
+    √ renders NavBar DPMA text (9 ms)
+    √ renders NavBar Admin text (2 ms)
+    √ renders NavBar (3 ms)
+    √ renders NavBar (2 ms)
+    √ NavBar with Nav element (59 ms)
+    √ renders div app text (7 ms)
+    √ HomeComponent have Header (4 ms)
+    √ render Header in HomeComponent (4 ms)
+    √ render Operations in HomeComponent (1 ms)
+    √ checking node equality (22 ms)
 
 -------------------|---------|----------|---------|---------|-------------------
-File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |      20 |        0 |   10.34 |      20 | 
- src               |      25 |      100 |    7.69 |      25 | 
-  App.js           |      25 |      100 |    7.69 |      25 | 63-76
- src/Common        |      50 |      100 |      50 |      50 | 
-  NavBar.js        |      50 |      100 |      50 |      50 | 11
+All files          |   23.68 |        0 |      10 |   23.68 |                   
+ src               |      30 |      100 |    6.67 |      30 |                   
+  App.js           |      30 |      100 |    6.67 |      30 | 53-56,74-87       
+ src/Common        |     100 |      100 |     100 |     100 |                   
+  NavBar.js        |     100 |      100 |     100 |     100 |                   
  src/Common/Header |   16.67 |        0 |       0 |   16.67 | 
   Header.js        |   16.67 |        0 |       0 |   16.67 | 9-20
  src/Layout        |    9.09 |      100 |      10 |    9.09 | 
   Home.js          |    9.09 |      100 |      10 |    9.09 | 29-43
 -------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 passed, 1 total
-Tests:       6 passed, 6 total
+Tests:       11 passed, 11 total
 Snapshots:   0 total
-Time:        46.422 s
-Ran all test suites.
+Time:        58.067 s, estimated 98 s
+Ran all test suites related to changed files.
 
-Watch Usage: Press w to show more.
+
+## To Do
+
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import expect from 'expect';
+import { Provider } from 'react-redux';
+use this
+
+
+
+import React from 'react';
+import '@deere/ux.uxframe-core/dist/css/uxframe-2019.3.0.min.css';
+import { Nav } from '@deere/ux.uxframe-react'
+ 
+const NavBar = (props) => {
+    
+    return (
+        <React.Fragment>
+            <Nav.Item className="uxf-nav-item-icon unactive">
+                <Nav.Link onClick = {props.navHome}>
+                    <span className="uxf-link-text"> DPMA </span>
+                </Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="uxf-nav-item-icon unactive">
+                <Nav.Link onClick = {props.navAdmin}>
+                    <span className="uxf-link-text"> Admin </span>
+                </Nav.Link>
+            </Nav.Item>
+        </React.Fragment>
+    );
+}
+export default NavBar;
+
 
 
 ### `npm run eject`
