@@ -1,3 +1,6 @@
+import React from 'react';
+import Nav from 'react-bootstrap/Nav'
+
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import HomeComponent from './Layout/Home';
@@ -15,6 +18,10 @@ import { configure, shallow, mount } from 'enzyme';
 describe("Test1", () => {
 
 
+
+
+
+
   test('should call onselect', () => {
     const onselect = jest.fn()
     const wrapper = shallow(<NavBar onselect={onselect}/>)
@@ -22,6 +29,16 @@ describe("Test1", () => {
     expect(wrapper.find("#nav").at(0).simulate('select',{target:{selectedKey: 1}}))
     //expect(onselect).toHaveBeenCalledWith(0);
   })
+
+  test('renders NavBar DPMA text', () => {
+    const wrapper = shallow(<NavBar />)
+    expect(wrapper.find("#navlink-1").text()).toContain("DPMA")
+  });
+
+  test('renders NavBar Admin text', () => {
+    const wrapper = shallow(<NavBar />)
+    expect(wrapper.find("#navlink-2").text()).toContain("Admin")
+  });
 
   test('renders NavBar', () => {
     const wrapper = shallow(<NavBar />)
@@ -65,5 +82,36 @@ describe("Test1", () => {
 
     expect(wrapper.contains(operation)).toEqual(true);
   })
+
+  test('checking node equality', ()=> {
+    // GIVEN
+    const expectedNode = shallow(
+      <div>
+        <React.Fragment>                
+                  <Nav 
+                      id="nav"
+                      activeKey="/home"                   
+                      >NavBar
+                      <Nav.Item>
+                          <Nav.Link id="navlink-1" >DPMA</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                          <Nav.Link id="navlink-2" >Admin</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                          <Nav.Link >Link</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                          <Nav.Link >Disabled</Nav.Link>
+                      </Nav.Item>
+                  </Nav>
+              </React.Fragment>
+      </div>
+    )
+    // WHEN
+    const actualNode = shallow(<NavBar />)
+    // THEN
+    expect(actualNode.html()).toEqual(expectedNode.html());
+})
 
 })
