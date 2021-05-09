@@ -46,6 +46,16 @@ function App() {
   //   }
   // );
 
+  const [navHome,setnavHome] = useState("");
+  const [navAdmin,setnavAdmin] = useState("");
+
+  function setHome () {
+    setnavHome("nav Home added")
+  }
+  function setAdmin () {
+    setnavAdmin("nav Admin added")
+  }
+
   return (
     <GlobalProvider value= {{Global: Data}} >
     <HeaderProvider>
@@ -55,9 +65,10 @@ function App() {
         div App
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-          <NavBar/>
-
-
+          <NavBar navHome={setHome} navAdmin={setAdmin} />
+          navHome: {navHome} 
+          <br/>
+          navAdmin:{navAdmin}
 
             <Switch>
               <Route path="/" exact component= { (props) => ( <HomeComponent  /> )} />
