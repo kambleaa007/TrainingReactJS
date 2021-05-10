@@ -56,6 +56,8 @@ function App() {
     setnavAdmin("nav Admin added")
   }
 
+  //setHome = () => {}
+
   return (
     <GlobalProvider value= {{Global: Data}} >
     <HeaderProvider>

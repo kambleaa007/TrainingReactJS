@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1620539805076" clover="3.2.0">
-  <project timestamp="1620539805077" name="All files">
+<coverage generated="1620542210355" clover="3.2.0">
+  <project timestamp="1620542210355" name="All files">
     <metrics statements="38" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="30" coveredmethods="3" elements="70" coveredelements="12" complexity="0" loc="38" ncloc="38" packages="4" files="4" classes="4"/>
     <package name="src">
       <metrics statements="20" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="1"/>
       <file name="App.js" path="D:\Work\reactjs\TrainingReactJS\src\App.js">
         <metrics statements="20" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="1"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
         <line num="81" count="0" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
@@ -26,6 +24,8 @@
         <line num="85" count="0" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
         <line num="87" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.Common">

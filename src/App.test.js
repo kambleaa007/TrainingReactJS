@@ -18,7 +18,14 @@ import { configure, shallow, mount } from 'enzyme';
 describe("Test1", () => {
 
 
+  test('callback fire', ()=>{
+    let mockfn = jest.fn();
+    let wrapper = shallow(<App />);
+    //wrapper.instance().setHome = mockfn;
 
+    wrapper.find('#navlink-1').props().navHome();
+    expect(mockfn).toHaveBeenCalled();
+  })
 
 
 
