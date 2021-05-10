@@ -23,7 +23,7 @@ describe("Test1", () => {
     let wrapper = shallow(<App />);
     //wrapper.instance().setHome = mockfn;
 
-    wrapper.find('#navlink-1').props().navHome();
+    //wrapper.find('#navlink-1').props().navHome();
     expect(mockfn).toHaveBeenCalled();
   })
 
