@@ -49,15 +49,14 @@ function App() {
   const [navHome,setnavHome] = useState("");
   const [navAdmin,setnavAdmin] = useState("");
 
-  function setHome () {
+  function setHome () {   //setHome = () => {}
     setnavHome("nav Home added")
   }
   function setAdmin () {
     setnavAdmin("nav Admin added")
   }
 
-  //setHome = () => {}
-
+  
   return (
     <GlobalProvider value= {{Global: Data}} >
     <HeaderProvider>
