@@ -84,7 +84,7 @@ describe("Test1", () => {
 ### code coverage
 
 npm test -- --coverage
-
+npm test -- --coverage --watchAll
 
  PASS  src/App.test.js (49.278 s)
   Test1
